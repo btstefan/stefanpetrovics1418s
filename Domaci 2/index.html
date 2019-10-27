@@ -1,0 +1,193 @@
+<!--
+==========================================
+    Sajt: Domaci zadatak 2 HTML
+    Autor: Stefan Petrovic
+==========================================
+-->
+
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <title>Domaci 2</title>
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="pocetna">
+            <div id="pocetna_vrh">
+                <a href="#pocetna">
+                    <div class="logo">
+                    </div>
+                </a>
+                <!-- Moto stranice (nasumican tekst lorem6)-->
+                <span>Lorem ipsum dolor sit amet consectetur.</span>
+                <div class="korpa">
+                    <div class="korpa_logo">
+                    </div>
+                    <div class="korpa_tekst">
+                        <p>Korpa (0)</p>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#pocetna">Pocetna</a></li>
+                    <li><a href="#registracija">Registracija</a></li>
+                    <li><a href="#proizvodi">Proizvodi</a></li>
+                    <li><a href="#vesti">Vesti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="registracija">
+            <div id="registracija_div">
+                <div class="forma">
+                    <div id="naslov">
+                        <h1>Stefan Petrović</h1>
+                        <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut eligendi perspiciatis vel, dicta quaerat porro.</h2>
+                    </div>
+                    <div id="reg">
+                        <form action="#" method="post">
+                            <h3><i class="material-icons">person_add</i>REGISTRUJ SE:</h3>
+                            <input type="text" class="int l" name="ime" placeholder="Ime" required>
+                            <input type="text" class="int d" name="ime" placeholder="Prezime" required>
+                            <input type="email" class="int tip1" name="email" placeholder="Email" required>
+                            <input type="password" class="int l" name="password" placeholder="Lozinka" required>
+                            <input type="tel" name="telefon" class="int d" placeholder="Telefon" pattern="06[0-9]{8}" required>
+                            <select name="Rod">
+                                <option disabled selected>Rod</option>
+                                <option>Muški</option>
+                                <option>Ženski</option>
+                            </select>
+                            <label><input type="checkbox" name="usl" required> <span>Prihvatam uslove korišćenja.</span></label>
+                            <input type="submit" class="btn" value="Registracija">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="proizvodi">
+            <div id="proizvodi_div">
+                <div class="forma">
+                    <h2><i class="material-icons">navigate_next</i>Proizvodi:</h2>
+                    <div id="p">
+                        <div class="p">
+                            <img src="images/proizvodi/i3-9100F.png" alt="gtx1050ti">
+                            <h3>INTEL Core i3-9100F</h3>
+                            <hr/>
+                            <p>Cena: <b>11.699 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen3.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 3 3200G </h3>
+                            <hr/>
+                            <p>Cena: <b>12.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen5.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 5 3600</h3>
+                            <hr/>
+                            <p>Cena: <b>24.499 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>    
+                        </div>    
+                        <div class="p">
+                            <img src="images/proizvodi/i5-9600KF.png" alt="gtx1050ti">
+                            <h3>INTEL Core i5-9600KF</h3>
+                            <hr/>
+                            <p>Cena: <b>30.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/i7-9700K.png" alt="gtx1050ti">
+                            <h3>INTEL Core i7-9700K</h3>
+                            <hr/>
+                            <p>Cena: <b>48.599 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen7.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 7 3800X</h3>
+                            <hr/>
+                            <p>Cena: <b>55.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/i9-9900K.png" alt="gtx1050ti">
+                            <h3>INTEL Core i9-9900K</h3>
+                            <hr/>
+                            <p>Cena: <b>66.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen9.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 9 3900X</h3>
+                            <hr/>
+                            <p>Cena: <b>71.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="vesti">
+            <div id="vesti_div">
+                <div class="forma">
+                    <h2><i class="material-icons">navigate_next</i>Vesti:</h2>
+                    <div class="v">
+                        <div class="slika">
+                            <img src="images/vesti/ram.jpg" alt="ram">
+                        </div>
+                        <div class="vest">
+                            <h4>Micron je sada vlasnik DDR4 overklokerskog rekorda, sa 6024MHz</h4>
+                            <p>Micron tvrdi da je ostvario najbolji rezultat na svetu u segmentu potrošačke DDR4 memorije, sa overklokovanjem svojih Ballistix Elite DDR4 4000 8GB modula do 6024MHz.</p>
+                            <span>27.10.2019</span>
+                        </div>
+                    </div>
+                    <div class="v">
+                        <div class="slika">
+                            <img src="images/vesti/arm.jpg" alt="arm">
+                        </div>
+                        <div class="vest">
+                            <h4>ARM će obnoviti svoju poslovnu saradnju sa kompanijom Huawei</h4>
+                            <p>Britanski proizvođač čipova ARM je objavio da će obnoviti isporuku svojih tehnologija za čipove kompaniji Huawei, nakon što je u maju prekinula poslovnu saradnju sa kineskom proizvođačem.</p>
+                            <span>27.10.2019</span>
+                        </div>
+                    </div>
+                    <div class="v">
+                            <div class="slika">
+                                <img src="images/vesti/tlc.jpg" alt="tlc">
+                            </div>
+                            <div class="vest">
+                                <h4>TCL-ov koncept telefon ima neobičan fleksibilni dizajn</h4>
+                                <p>CNET izveštava o prototip savitljivom telefonu kompanije TCL, koji stiže u varijanti sa dve šarke i telefon savija na tri dela (u cik-cak formatu), a kada se rasklopi pretvara se u 10-inčni tablet.</p>
+                                <span>26.10.2019</span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="images/logo.png" alt="logo"/><br/>
+        <p><i class="material-icons">person</i>Stefan Petrovic S14/17 <i class="material-icons">contact_mail</i> spetrovic1418s@raf.rs <i class="material-icons">phone</i>064-4810738</p>
+    </footer>
+</body>
+</html>

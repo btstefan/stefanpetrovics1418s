@@ -1,0 +1,411 @@
+/*
+==========================================
+    Sajt: Domaci zadatak 2 CSS
+    Autor: Stefan Petrovic
+==========================================
+*/
+
+html, body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+}
+
+i {
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+
+header {
+    background: url('../images/pocetna-bg.jpg');
+}
+
+#pocetna {
+    position: relative;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pocetna_vrh {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 50px 0 50px 0;
+}
+
+/* Moto stranice */
+#pocetna_vrh span {
+    color: hsl(0, 0%, 81%);
+    position: absolute;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: .8em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Logo preko div taga */
+.logo {
+    position: relative;
+    float: left;
+    width: 179px;
+    height: 60px;
+    background: url('../images/logo.png') no-repeat center;
+}
+
+/* Korpa (napravljena zbog estetike) */
+.korpa {
+    float: right;
+    width: 179px;
+    margin-top: 5px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #02a01f;
+}
+
+.korpa_logo {
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #ffffff url('../images/korpa.png') no-repeat center;
+}
+
+.korpa_tekst {
+    float: left;
+}
+
+.korpa_tekst p {
+    margin-top: 0;
+    margin-left: 20px;
+    line-height: 50px;
+    font-weight: bold;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .8em;
+    color: #e2e2e2;
+}
+
+nav {
+    background: #5b605f;
+    border-bottom: 4px solid #02a01f;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #e4e4e4;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .8em;
+    letter-spacing: .1em;
+    padding: 25px 40px;
+}
+
+nav li {
+    display: inline-block;
+    box-sizing: border-box;
+    border-right: 2px solid #555958;
+    margin-right: -4px;
+    cursor: pointer;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: color 1000ms;
+    transition: color 1000ms;
+}
+
+nav li:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #02a01f;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition: 300ms ease-out;
+    transition: 300ms ease-out;
+  }
+
+nav li:hover:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+
+#registracija_div {
+    position: relative;
+    height: 400px;
+    background: #383838 url('../images/bg.jpg');
+}
+
+/* Klasa koja odredjuje sirinu i poziciju sadrzaja unutar diva */
+.forma {
+    width: 60vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.forma h2 {
+    margin: 40px 0 40px 0;
+}
+
+#naslov {
+    position: absolute;
+    top: 20%;
+    float: left;
+    width: 30vw;
+}
+
+#naslov h1 {
+    color: #02a01f;
+    letter-spacing: 0.1em;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: scale(1, 1.5);
+}
+
+#naslov h2 {
+    color: #dbdbdb;
+    font-size: 1em;
+    font-weight: 100;
+}
+
+/* DIV za registraciju */
+#reg {
+    position: relative;
+    float: right;
+    width: 22vw;
+}
+
+#reg h3 {
+    position: relative;
+    color:rgb(4, 196, 40, .8);
+    font-size: 1.2em;
+    margin: 35px 0 10px 0;
+    padding: 0;
+    /*
+    margin-left: 50%;
+    transform: translateX(-50%);
+    */
+}
+
+#reg span {
+    color: #838383;
+    font-size: .9em;
+}
+
+/* Klase za pozicioniranje input polja unutar diva. l=levo, d=desno */
+
+.tip1 {
+    width: 100%;
+}
+
+.l {
+    width: calc(50% - 5px);
+}
+
+.d {
+    width: calc(50% - 5px);
+    margin-left: 9px;
+}
+
+.int {
+    position: relative;
+    height: 40px;
+    margin-right: -4px;
+    margin-bottom: 10px;
+    text-indent: 1em;
+    background-color: rgb(91, 96, 95, .5);
+    outline: none;
+    border: none;
+    color: #969696;
+    font-weight: bold;
+    border-radius: .5em;
+}
+
+input[type=checkbox] {
+    display: inline-block;
+    margin: 15px 0 15px 0;
+}
+
+select {
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgb(91, 96, 95, .5);
+    color: #969696;
+    text-indent: 4%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url('../images/strela.png');
+    background-repeat: no-repeat, repeat;
+    background-position: right 1em top 50%, 0 0;
+    background-size: .75em auto, 100%;
+    border-radius: .5em;
+}
+
+select:focus,
+input:focus,
+option:focus {
+    outline: none;
+}
+
+option {
+    color: #a8a8a8;
+    background-color: #2e2e2e;
+    cursor: pointer;
+    border: none;
+    padding-left: 20px;
+}
+
+/* submit, button... */
+.btn {
+    height: 40px;
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #02a01f;
+    outline: none;
+    color: #e6e6e6;
+    cursor: pointer;
+    border-radius: .5em;
+}
+
+.btn:hover {
+    background-color: #05b625;
+}
+
+/* Radi lepseg izgleda sajta na laptopovima sa manjom rezolucijom (npr: 1366 x 768)*/
+@media only screen and (max-width: 1400px) {
+    #intro {
+        width: 80vw;
+    }
+    .forma {
+        width: 80vw;
+    }
+    #reg { 
+        width: 30vw;
+    }
+    #naslov {
+        width: 40vw;
+    }
+}
+
+#proizvodi_div {
+    margin-bottom: 50px;
+}
+
+/* div sa svim proizvodima */
+#p {
+    position: relative;
+    margin-top: 20px;
+}
+
+#p input {
+    width: 2em;
+    border: none;
+}
+
+#p input[type=number]::-webkit-inner-spin-button, 
+#p input[type=number]::-webkit-outer-spin-button {  
+    opacity: 1;
+}
+
+/* Klasa za svaki proizvod na ovom sajtu */
+.p {
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px;
+    width: calc(25% - 9px);
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 -4px 8px 12px;
+    border: 1px solid #f5f5f5;
+}
+
+/* Prvi proizvod i svaki naredni prvi u redu ne treba da ima levu marginu 
+da se ne bi prekoracila maksimalna sirina roditeljskog DIV-a */
+.p:nth-child(4n + 1) {
+    margin-left: 0px;
+}
+
+.p img {
+    position: relative;
+    width: 70%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#vesti_div {
+    margin-bottom: 50px;
+}
+
+#vesti_div .v {
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.v .slika {
+    float: left;
+    margin-right: 20px;
+    width: 175px;
+    height: 105px;
+    overflow: hidden;
+}
+
+.v h4 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+.v p {
+    margin: 8px 0 8px 0;
+    font-size: .95em;
+}
+
+.v span {
+    color:#017c18;
+    font-size: .9em;
+}
+
+footer {
+    position: relative;
+    background-color: #383838;
+    text-align: center;
+    cursor: pointer;
+}
+
+footer p {
+    display: inline-block;
+    color: #bdbdbd;
+    margin-bottom: 20px;
+}
+
+footer p:hover {
+    color: #dbdbdb;
+}
+
+footer i {
+    margin-left: 20px;
+}
