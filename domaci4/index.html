@@ -1,0 +1,288 @@
+<!--
+==========================================
+    Sajt: Domaci zadatak 2 HTML
+    Autor: Stefan Petrovic
+==========================================
+-->
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <title>Web Shop</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <script src="js/lightbox.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="forma">
+            <div id="pocetna">
+                <div id="pocetna_vrh">
+                    <a href="#pocetna">
+                        <div class="logo">
+                        </div>
+                    </a>
+                    <div class="korpa">
+                        <div class="korpa_logo">
+                        </div>
+                        <div class="korpa_tekst">
+                            <p>Korpa (0)</p>
+                        </div>
+                    </div>
+                    <!-- Moto stranice (nasumican tekst lorem6)-->
+                    <span>Lorem ipsum dolor sit amet consectetur.</span>
+                </div>
+                <nav>
+                    <div id="mob_btn">
+                        <div class="linija"></div>
+                        <div class="linija"></div>
+                        <div class="linija"></div>
+                    </div>
+                    <div class="navigacija">
+                        <ul>
+                            <li><a href="#pocetna">Pocetna</a></li>
+                            <li><a href="#proizvodi">Proizvodi</a></li>
+                            <li><a href="#vesti">Vesti</a></li>
+                            <li><a href="#galerija">O nama</a></li>
+                            <li><a href="#kontakt">Kontakt</a></li>
+                        </ul>
+                </nav>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="reg">
+        <div class="reg_wrap"></div>
+        <div id="reg-content">
+            <form action="#" method="post">
+                <h3><i class="fa fa-user z"></i> Registruj se</h3>
+                <i class="fa fa-times exit"></i>
+                <input type="text" class="int l" name="ime" placeholder="Ime" required>
+                <input type="text" class="int d" name="ime" placeholder="Prezime" required>
+                <input type="email" class="int tip1" name="email" placeholder="Email" required>
+                <input type="password" class="int l" name="password" placeholder="Lozinka" required>
+                <input type="tel" name="telefon" class="int d" placeholder="Telefon" pattern="06[0-9]{8}" required>
+                <select name="Rod">
+                    <option disabled selected>Rod</option>
+                    <option>Muški</option>
+                    <option>Ženski</option>
+                </select>
+                <label><input type="checkbox" name="usl" required> <span>Prihvatam uslove korišćenja.</span></label>
+                <input type="submit" class="btn" value="Registracija">
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <section id="registracija">
+            <div id="registracija_div">
+                <div class="klizac">
+                    <div class="oblak"></div>
+                </div>
+                <div class="forma">
+                    <div class="naslov2">
+                        <img src="images/shop_logo.png" alt="logo" class="shop_logo" />
+                        <button class="reg_btn">Registruj se</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="proizvodi">
+            <div id="proizvodi_div">
+                <div class="forma">
+                    <h2 class="ns">Proizvodi:</h2>
+                    <div id="p">
+                        <div class="p">
+                            <img src="images/proizvodi/i3-9100F.png" alt="gtx1050ti">
+                            <h3>INTEL Core i3-9100F</h3>
+                            <hr />
+                            <p>Cena: <b>11.699 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen3.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 3 3200G </h3>
+                            <hr />
+                            <p>Cena: <b>12.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen5.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 5 3600</h3>
+                            <hr />
+                            <p>Cena: <b>24.499 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/i5-9600KF.png" alt="gtx1050ti">
+                            <h3>INTEL Core i5-9600KF</h3>
+                            <hr />
+                            <p>Cena: <b>30.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/i7-9700K.png" alt="gtx1050ti">
+                            <h3>INTEL Core i7-9700K</h3>
+                            <hr />
+                            <p>Cena: <b>48.599 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen7.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 7 3800X</h3>
+                            <hr />
+                            <p>Cena: <b>55.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/i9-9900K.png" alt="gtx1050ti">
+                            <h3>INTEL Core i9-9900K</h3>
+                            <hr />
+                            <p>Cena: <b>66.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                        <div class="p">
+                            <img src="images/proizvodi/ryzen9.png" alt="gtx1050ti">
+                            <h3>AMD Ryzen 9 3900X</h3>
+                            <hr />
+                            <p>Cena: <b>71.999 RSD</b></p>
+                            <p>Količina: <input type="number" name="kolicina" min="1" value="1"></p>
+                            <button class="btn">Dodaj u korpu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vesti">
+            <div id="vesti_div">
+                <div class="forma">
+                    <h2 class="ns">Vesti:</h2>
+                    <div class="v">
+                        <div class="slika">
+                            <img src="images/vesti/ram.jpg" alt="ram">
+                        </div>
+                        <div class="vest">
+                            <h4>Micron je sada vlasnik DDR4 overklokerskog rekorda, sa 6024MHz</h4>
+                            <p>Micron tvrdi da je ostvario najbolji rezultat na svetu u segmentu potrošačke DDR4
+                                memorije, sa overklokovanjem svojih Ballistix Elite DDR4 4000 8GB modula do 6024MHz.</p>
+                            <span>27.10.2019</span>
+                        </div>
+                    </div>
+                    <div class="v">
+                        <div class="slika">
+                            <img src="images/vesti/arm.jpg" alt="arm">
+                        </div>
+                        <div class="vest">
+                            <h4>ARM će obnoviti svoju poslovnu saradnju sa kompanijom Huawei</h4>
+                            <p>Britanski proizvođač čipova ARM je objavio da će obnoviti isporuku svojih tehnologija za
+                                čipove kompaniji Huawei, nakon što je u maju prekinula poslovnu saradnju sa kineskom
+                                proizvođačem.</p>
+                            <span>27.10.2019</span>
+                        </div>
+                    </div>
+                    <div class="v">
+                        <div class="slika">
+                            <img src="images/vesti/tlc.jpg" alt="tlc">
+                        </div>
+                        <div class="vest">
+                            <h4>TCL-ov koncept telefon ima neobičan fleksibilni dizajn</h4>
+                            <p>CNET izveštava o prototip savitljivom telefonu kompanije TCL, koji stiže u varijanti sa
+                                dve šarke i telefon savija na tri dela (u cik-cak formatu), a kada se rasklopi pretvara
+                                se u 10-inčni tablet.</p>
+                            <span>26.10.2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="galerija">
+                <div id="onama">
+                    <div class="forma">
+                        <div class="naslov">
+                            <h1>O nama</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolores, a recusandae impedit et culpa commodi qui sit veniam eum ad, tempora doloribus temporibus possimus blanditiis in odit debitis nam porro. Impedit quas, molestias voluptatum reiciendis quia sit quae. Quasi, totam sed.</p>
+                        </div>
+                        <div class="galerija">
+                            <div class="slika s1">
+                                <div class="s">
+                                    <a href="images/galerija/1.webp" data-lightbox="galerija"><img src="images/galerija/1.webp" alt="g"></a>
+                                </div>
+                            </div>
+                            <div class="slika s2">
+                                <div class="s">
+                                    <a href="images/galerija/4.webp" data-lightbox="galerija"><img src="images/galerija/4.webp" alt="g"></a>
+                                </div>
+                            </div>
+                            <div class="slika">
+                                <div class="s">
+                                    <a href="images/galerija/6.webp" data-lightbox="galerija"><img src="images/galerija/6.webp" alt="g"></a>
+                                </div>
+                            </div>
+                            <div class="slika s4">
+                                <div class="s">
+                                    <a href="images/galerija/5.webp" data-lightbox="galerija"><img src="images/galerija/5.webp" alt="g"></a>
+                                </div>
+                            </div>
+                            <div class="slika">
+                                <div class="s">
+                                    <a href="images/galerija/2.webp" data-lightbox="galerija"><img src="images/galerija/2.webp" alt="g"></a>
+                                </div>
+                            </div>
+                            <div class="slika s6">
+                                <div class="s">
+                                    <a href="images/galerija/3.webp" data-lightbox="galerija"><img src="images/galerija/3.webp" alt="g"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section id="kontakt">
+            <div id="kontakt_div">
+                <div class="kontakt_forma">
+                    <h1>Kontakt</h1>
+                    <div class="f">
+                        <form action="#" method="post">
+                            <input type="text" name="imeiprezime" placeholder="Ime i prezime"/>
+                            <input type="email" name="adr" placeholder="Email"/><br/>
+                            <textarea placeholder="Poruka..." name="poruka"></textarea>
+                            <input type="submit" value="Posalji poruku">
+                        </form>
+                    </div>
+                </div>
+                <div class="mapouter">
+                    <div class="gmap_canvas"><iframe width="100%" height="450" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=knez%20mihailova&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="images/shop_logo.png" alt="logo" /><br />
+        <p><i class="fa fa-user z"></i> Stefan Petrovic S14/17</p>
+        <p><i class="fa fa-envelope z"></i> spetrovic1418s@raf.rs</p>
+        <p><i class="fa fa-mobile z"></i> 064-4810738</p>
+    </footer>
+</body>
+
+</html>

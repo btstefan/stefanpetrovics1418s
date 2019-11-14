@@ -1,0 +1,886 @@
+html,
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #ffffff;
+}
+
+header {
+    background: url('../images/pocetna-bg.jpg');
+}
+
+#pocetna {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pocetna_vrh {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 50px 0 50px 0;
+}
+
+#pocetna_vrh span {
+    color: #e4e4e4;
+    position: absolute;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 800px) {
+    #pocetna_vrh span {
+        display: none;
+        /*
+        position: relative;
+        float: left;
+        top: initial;
+        left: initial;
+        transform: initial;
+        margin: 30px 0 -30px 0;
+        */
+    }
+}
+
+#pocetna_vrh .logo {
+    position: relative;
+    float: left;
+    width: 179px;
+    height: 60px;
+    background: url('../images/logo2.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+@media screen and (max-width: 500px) {
+    #pocetna_vrh .logo {
+        width: 45%;
+    }
+}
+
+#pocetna_vrh .korpa {
+    float: right;
+    width: 179px;
+    margin-top: 5px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #02a01f;
+}
+
+@media screen and (max-width: 500px) {
+    #pocetna_vrh .korpa {
+        width: 45%;
+    }
+}
+
+#pocetna_vrh .korpa .korpa_logo {
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 100%;
+    background: #ffffff url('../images/korpa.png') no-repeat center;
+}
+
+#pocetna_vrh .korpa .korpa_tekst {
+    float: left;
+}
+
+#pocetna_vrh .korpa .korpa_tekst p {
+    margin-top: 0;
+    margin-left: 20px;
+    line-height: 50px;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #e4e4e4;
+}
+
+.mobnav {
+    display: block !important;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    background: #5b605f;
+    border-bottom: 4px solid #02a01f;
+}
+
+@media screen and (max-width: 800px) {
+    nav {
+        height: 68px;
+    }
+}
+
+nav #mob_btn {
+    display: none;
+    width: 68px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    nav #mob_btn {
+        display: block;
+        box-sizing: border-box;
+        padding: 8px 14px;
+    }
+}
+
+nav #mob_btn .linija {
+    width: 100%;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 8px 0;
+    transition: 0.4s;
+}
+
+nav .navigacija {
+    width: 100%;
+    z-index: 9999;
+    background: #5b605f;
+}
+
+@media screen and (max-width: 800px) {
+    nav .navigacija {
+        display: none;
+        position: absolute;
+        right: 0;
+        max-width: 55%;
+        margin-top: 72px;
+    }
+}
+
+nav .navigacija ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav .navigacija li {
+    display: inline-block;
+    box-sizing: border-box;
+    border-right: 2px solid #555958;
+    margin-right: -4px;
+    cursor: pointer;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+@media screen and (max-width: 800px) {
+    nav .navigacija li {
+        width: 100%;
+        display: block;
+        border-right: none;
+    }
+}
+
+nav .navigacija li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #e4e4e4;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+    padding: 25px 40px;
+}
+
+@media screen and (max-width: 800px) {
+    nav .navigacija li a {
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #555958;
+        padding: 25px 20px;
+    }
+}
+
+nav .navigacija li:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #02a01f;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition: 300ms ease-out;
+    transition: 300ms ease-out;
+}
+
+@media screen and (max-width: 800px) {
+    nav .navigacija li:before {
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+}
+
+nav .navigacija li:hover:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+@media screen and (max-width: 800px) {
+    nav .navigacija li:hover:before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+}
+
+#registracija_div {
+    position: relative;
+    height: 400px;
+    background: url('../images/bg.jpg');
+    overflow: hidden;
+}
+
+#registracija_div .naslov2 {
+    position: relative;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+    #registracija_div .naslov2 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #registracija_div .naslov2 {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #registracija_div .naslov2 {
+        width: 80%;
+    }
+}
+
+#registracija_div .naslov2 .shop_logo {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+#registracija_div .naslov2 .reg_btn {
+    display: block;
+    width: 180px;
+    height: 40px;
+    background: transparent;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    margin: 30px auto 20px auto;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+#registracija_div .naslov2 .reg_btn:hover {
+    background: #ffffff;
+    color: black;
+    box-shadow: 0 0 17px #ffffff;
+}
+
+#registracija_div .naslov2 .reg_btn:focus {
+    outline: none;
+}
+
+.okvir {
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+.forma {
+    display: block;
+    position: relative;
+    width: 60vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1500px) {
+    .forma {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .forma {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+}
+
+/* DIV za registraciju */
+#reg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    z-index: 2;
+}
+
+#reg .reg_wrap {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+#reg #reg-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 550px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+@media screen and (max-width: 600px) {
+    #reg #reg-content {
+        width: 90%;
+    }
+}
+
+#reg #reg-content h3 {
+    position: relative;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0 0 50px 0;
+    padding: 0;
+}
+
+#reg #reg-content .exit {
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    padding: 2px;
+    top: 25px;
+    right: 20px;
+}
+
+#reg #reg-content span {
+    color: #969696;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#reg #reg-content .int {
+    position: relative;
+    height: 40px;
+    margin-bottom: 20px;
+    text-indent: 1em;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid #02a01f;
+    color: #969696;
+    font-weight: bold;
+}
+
+#reg #reg-content .tip1 {
+    width: 100%;
+}
+
+#reg #reg-content .l {
+    width: calc(50% - 10px);
+}
+
+#reg #reg-content .d {
+    width: calc(50% - 10px);
+    margin-left: 20px;
+}
+
+#reg #reg-content input[type=checkbox] {
+    display: inline-block;
+    margin: 35px 0 35px 0;
+}
+
+#reg #reg-content select {
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+    background: transparent;
+    border-bottom: 1px solid #02a01f;
+    color: #969696;
+    text-indent: 4%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url('../images/strela.png');
+    background-repeat: no-repeat, repeat;
+    background-position: right 1em top 50%, 0 0;
+    background-size: 0.75em auto, 100%;
+}
+
+#reg #reg-content select:focus,
+#reg #reg-content input:focus,
+#reg #reg-content option:focus {
+    outline: none;
+}
+
+#reg #reg-content option {
+    color: #969696;
+    background-color: #2e2e2e;
+    cursor: pointer;
+    border: none;
+    padding-left: 20px;
+}
+
+#reg #reg-content .btn {
+    height: 40px;
+    width: 100%;
+    border: 2px solid #02a01f;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: transparent;
+    outline: none;
+    color: #e4e4e4;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#reg #reg-content .btn:hover {
+    border-color: #e4e4e4;
+    background-color: #e4e4e4;
+    color: black;
+}
+
+.z {
+    color: #02a01f;
+}
+
+#proizvodi_div {
+    margin-bottom: 50px;
+}
+
+#proizvodi_div #p {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
+    grid-gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    #proizvodi_div #p {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #proizvodi_div #p {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #proizvodi_div #p {
+        grid-template-columns: 1fr;
+    }
+}
+
+#proizvodi_div #p input {
+    width: 2em;
+    border: none;
+}
+
+#proizvodi_div #p input[type=number] {
+    cursor: pointer;
+}
+
+#proizvodi_div #p input[type=number]::-webkit-inner-spin-button,
+#proizvodi_div #p input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+#proizvodi_div #p .p {
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #eeeeee;
+    cursor: pointer;
+}
+
+#proizvodi_div #p .p img {
+    position: relative;
+    width: 100%;
+    transform: scale(0.7);
+    transition: 0.4s all;
+}
+
+#proizvodi_div #p .p img:hover {
+    transform: scale(0.8);
+}
+
+#proizvodi_div #p .p .btn {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background: #5b605f;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#proizvodi_div #p .p .btn:hover {
+    background-color: #02a01f;
+}
+
+#vesti_div {
+    margin-bottom: 50px;
+}
+
+#vesti_div .v {
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+#vesti_div .v .slika {
+    float: left;
+    margin-right: 20px;
+    width: 175px;
+    height: 105px;
+    overflow: hidden;
+}
+
+#vesti_div .v h4 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+#vesti_div .v p {
+    margin: 8px 0 8px 0;
+    font-size: 0.95em;
+}
+
+#vesti_div .v span {
+    color: #017c18;
+    font-size: 0.9em;
+}
+
+footer {
+    position: relative;
+    background-color: #383838;
+    text-align: center;
+    cursor: pointer;
+    border-top: 4px solid #02a01f;
+}
+
+footer p {
+    display: inline-block;
+    color: #e4e4e4;
+    margin-bottom: 20px;
+}
+
+footer p:hover {
+    color: #dadada;
+}
+
+footer i {
+    margin-left: 20px;
+}
+
+footer img {
+    margin: 20px 0 0 0;
+    width: 200px;
+}
+
+/* oblaci
+==========================================
+*/
+.klizac {
+    overflow: hidden;
+}
+
+.klizac .oblak {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/oblaci.png') repeat-x center;
+    height: 100%;
+    width: 5076px;
+    opacity: 0.8;
+    animation: pokreni 15s linear infinite;
+}
+
+@keyframes pokreni {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-1692px, 0, 0);
+    }
+}
+
+#onama {
+    position: relative;
+    display: block;
+    height: auto;
+    width: 100%;
+    background: #e4e4e4;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 80% 8%, 50% 0%, 20% 8%, 0% 0%);
+    text-align: center;
+    overflow: hidden;
+}
+
+#onama .naslov h1 {
+    margin-top: 40px;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#onama .naslov p {
+    margin-bottom: 30px;
+}
+
+#onama .galerija {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    grid-gap: 6px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    #onama .galerija {
+        grid-template-rows: 100px 100px;
+    }
+}
+
+#onama .galerija .slika {
+    position: relative;
+    display: block;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+}
+
+#onama .galerija .slika .s {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#onama .galerija .slika .s img {
+    position: relative;
+    object-fit: cover;
+    height: 100%;
+    min-width: 100%;
+    transition: all 0.2s ease;
+}
+
+#onama .galerija .slika .s img:hover {
+    transform: scale(1.05);
+}
+
+#onama .galerija .slika .s img:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: red;
+}
+
+#onama .galerija .s1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#onama .galerija .s2 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+#onama .galerija .s4 {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#onama .galerija .s6 {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.ns {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 20px;
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+.ns::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #5b605f;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 1rem;
+}
+
+#kontakt_div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+}
+
+@media screen and (max-width: 1000px) {
+    #kontakt_div {
+        grid-template-columns: 1fr;
+    }
+}
+
+#kontakt_div .kontakt_forma {
+    display: block;
+    position: relative;
+    background: #373736;
+    box-sizing: border-box;
+    padding: 20px 50px 0 50px;
+    background-size: cover;
+    text-align: center;
+}
+
+#kontakt_div .kontakt_forma h1 {
+    margin: 20px 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#kontakt_div .kontakt_forma .f {
+    position: relative;
+    font-size: 0;
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+    #kontakt_div .kontakt_forma .f {
+        width: 100%;
+    }
+}
+
+#kontakt_div .kontakt_forma .f input {
+    margin: 20px 0;
+    width: calc(50% - 10px);
+    padding: 10px 0;
+    border: none;
+    text-indent: 1em;
+    background: #313131;
+    border-bottom: 2px solid #007000;
+    color: #e4e4e4;
+}
+
+#kontakt_div .kontakt_forma .f input:focus {
+    outline: none;
+}
+
+#kontakt_div .kontakt_forma .f input:first-child {
+    margin-right: 20px;
+}
+
+#kontakt_div .kontakt_forma .f input[type=submit] {
+    width: 100%;
+    background: #464646;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: 0.2s all;
+    border-radius: 4px;
+}
+
+#kontakt_div .kontakt_forma .f input[type=submit]:hover {
+    background: #007000;
+}
+
+#kontakt_div .kontakt_forma .f textarea {
+    box-sizing: border-box;
+    border: none;
+    text-indent: 1em;
+    border-bottom: 2px solid #007000;
+    background: #313131;
+    color: #ffffff;
+    padding: 10px 0;
+    margin: 0;
+    width: 100%;
+    height: 10em;
+    resize: none;
+}
+
+#kontakt_div .kontakt_forma .f textarea:focus {
+    outline: none;
+}
+
+#kontakt_div .mapouter {
+    position: relative;
+    text-align: right;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#kontakt_div .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 450px;
+    width: 100%;
+    filter: invert(80%);
+    -moz-filter: invert(80%);
+}
