@@ -1,0 +1,147 @@
+html, body {
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+    background: rgb(0, 0, 0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,41,110,1) 30%, rgba(0,0,0,1) 100%);
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #033c72;
+    text-align: left;
+    margin: 0 auto;
+}
+
+thead th {
+    width: 10%;
+}
+
+thead th:nth-child(1) {
+    width: 30%;
+}
+thead th:nth-child(3) {
+    width: 20%;
+}
+
+thead tr { 
+    display: table-row !important;
+}
+
+thead th {
+    padding: 20px 20px;
+    border: none;
+    background: #022b52;
+}
+
+tbody td {
+    padding: 10px 20px;
+}
+
+#glavna_tabela {
+    width: 1100px;
+}
+
+#glavna_tabela tr:nth-child(odd) {
+    background-color: #00498d;
+}
+
+.tabela2 {
+    width: 600px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.tabela2 thead th:nth-child(1) {
+    width: 50%;
+}
+
+.tabela2 thead th:nth-child(2) {
+    width: 50%;
+}
+
+.tabela2 td:hover {
+    background-color: rgb(0, 73, 141);
+    cursor: pointer;
+}
+
+input[type=text] {
+    position: relative;
+    width: 1100px;
+    box-sizing: border-box;
+    padding: 15px;
+    border: none;
+}
+
+.link {
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.76);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+#modal_tabela {
+    display: none;
+    table-layout: fixed;
+    position: fixed;
+    width: 1000px;
+    top: 20%;
+    left: 0;
+    right: 0;
+    border-radius: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+#modal_tabela caption {
+    background: #022B52;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.izlaz {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    margin: 50px;
+    cursor: pointer;
+}
+
+.izlaz .x1 {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 50%;
+    transform-origin: center center;
+    transform: translateY(-50%) rotate(45deg);
+    background: #e2e2e2;
+}
+
+.izlaz .x2 {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 50%;
+    transform-origin: center center;
+    transform: translateY(-50%) rotate(-45deg);
+    background: #e2e2e2;
+}

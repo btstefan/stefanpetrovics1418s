@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Raspored</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+
+<body>
+    <input type="text" name="search" id="pretraga" placeholder="Pretraga..">
+    <table id="glavna_tabela"> 
+        <thead>
+            <tr>
+                <th>Predmet</th>
+                <th>Tip</th>
+                <th>Predavač</th>
+                <th>Grupa</th>
+                <th>Dan</th>
+                <th>Vreme</th>
+                <th>Učionica</th>
+            </tr>
+        </thead>
+        <tbody> 
+            {% for red in redovi %}
+            <tr>
+                <td>{{red.split(',')[0]}}</td>
+                <td>{{red.split(',')[1]}}</td>
+                <td class="link predavac">{{red.split(',')[2]}}</td>
+                <td>{{red.split(',')[3]}}</td>
+                <td>{{red.split(',')[4]}}</td>
+                <td>{{red.split(',')[5]}}</td>
+                <td class="link ucionica">{{red.split(',')[6]}}</td>
+            </tr> 
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table id="modal_tabela">
+    <caption>raspored</caption>
+    <thead>
+        <tr>
+            <th>Predmet</th>
+            <th>Tip</th>
+            <th class="predavac">Predavač</th>
+            <th>Grupa</th>
+            <th>Dan</th>
+            <th>Vreme</th>
+            <th class="ucionica">Učionica</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for red in redovi %}
+        <tr>
+            <td>{{red.split(',')[0]}}</td>
+            <td>{{red.split(',')[1]}}</td>
+            <td class="predavac">{{red.split(',')[2]}}</td>
+            <td>{{red.split(',')[3]}}</td>
+            <td>{{red.split(',')[4]}}</td>
+            <td>{{red.split(',')[5]}}</td>
+            <td class="ucionica">{{red.split(',')[6]}}</td>
+        </tr> 
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <table class="tabela2">
+        <thead>
+            <tr>
+                <th>Svi predavači</th>
+                <th>Sve učionice</th>
+            </tr>
+        </thead>
+        <tbody> 
+            {% for i in range(0, broj) %}
+            <tr> 
+                {% if i < p %}
+                <td class="link predavac">{{predavaci[i]}}</td>
+                {% endif %}
+                {% if i < u %}
+                <td class="link ucionica">{{ucionice[i]}}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="wrap">
+        <div class="izlaz">
+            <div class="x1"></div>
+            <div class="x2"></div>
+        </div>
+    </div>
+    </body>
+</html>
