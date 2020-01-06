@@ -1,0 +1,82 @@
+body {
+    margin: 50px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+form {
+    width: 220px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"] {
+    display: block;
+    margin: 10px 0;
+    height: 35px;
+    width: 220px;
+    text-indent: 14px;
+    box-sizing: border-box;
+}
+
+#zagonetka {
+    position: relative;
+    background: #eeeeee;
+    display: inline-block;
+}
+
+#pitanje {
+    max-width: 200px;
+    margin: 10px 0 0 0;
+}
+
+#odgovor {
+    display: none;
+}
+
+#dt {
+    display: none;
+    margin-top: 0;
+}
+
+#datum_txt {
+    display: none;
+    margin-bottom: 0;
+}
+
+#kvadrati {
+    display: none;
+}
+
+#broj_dana,
+#broj_godina {
+    width: 100px;
+    line-height: 100px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
+
+#broj_dana {
+    background: #5da3ff;
+    float: right;
+    cursor: pointer;
+}
+
+#broj_godina {
+    background: #fbff07;
+    float: left;
+}
+
+input[type="submit"] {
+    width: 220px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background:#2e2e2e;
+    color: rgb(211, 211, 211);
+    cursor: pointer;
+    margin-top: 10px;
+}

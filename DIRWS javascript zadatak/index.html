@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <form action="#" method="POST" onsubmit="return provera()">
+        <input type="text" name="ime" placeholder="Ime" required>
+        <input type="text" name="prezime" placeholder="Prezime" required>
+        <input type="number" name="indeks" min="1" placeholder="Broj indeksa" required>
+        Godina upisa: 
+        <select id="godina">
+            <option>2019</option>
+            <option>2018</option>
+            <option>2017</option>
+            <option>2016</option>
+            <option>2015</option>
+            <option>2014</option>
+            <option>2013</option>
+            <option>2012</option>
+            <option>2011</option>
+            <option>2010</option>
+            <option>2009</option>
+            <option>2008</option>
+            <option>2007</option>
+            <option>2006</option>
+            <option>2005</option>
+            <option>2004</option>
+        </select><br/>
+        <input type="email" name="email" placeholder="Email" required>
+        <div id="zagonetka">
+            <div id="pitanje"></div>
+            <input id="odgovor" type="text" name="odgovor" placeholder="Odgovor..">
+            <div id="abrojac"></div>
+        </div><br/>
+        <p id="datum_txt">Unesi datum rodjenja:</p>
+        <input id="dt" name="datum" type="date" onfocusout="dani()">
+        <div id="kvadrati">
+            <div id="broj_godina"></div>
+            <div id="broj_dana"></div>
+        </div>
+        <input type="submit" value="Potvrdi">
+    </form>
+</body>
+</html>
