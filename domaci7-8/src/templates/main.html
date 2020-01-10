@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="{{ url_for('index') }}">Početna</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        {% if '_id' in session %}
+                            {% if session['tip_korisnika'] == 'prodavac' %}
+                            <a class="nav-item nav-link" href="{{ url_for('dodaj_proizvod') }}">Dodaj proizvod</a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <div class="navbar-nav">
+                        {% if '_id' in session %}
+                            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Izloguj se ({{session['usr']}})</a>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                            <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+          </div>
+        </nav>
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-12 poruke">
+                {% with poruke = get_flashed_messages(with_categories=true) %}
+                    {% if poruke %}
+                        {% for vrsta, poruka in poruke %}
+                        <div class="alert alert-{{ vrsta }} poruka">
+                            {{ poruka }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {% block body %}{% endblock %}
+                </div>
+            </div>
+        </main>
+    </header>
+</body>
+</html>

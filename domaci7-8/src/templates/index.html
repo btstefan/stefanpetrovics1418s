@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+
+{% block head %}
+	<title>Test</title>
+{% endblock %}
+
+{% block body %}
+<div class="content-section">
+	<div class="row">
+		{% for p in proizvodi %}
+		<div class="col-md-3">
+			<div class="proizvod">
+				<div class="slika">
+					<img src="{{p["slika"]}}" alt="proizvod">
+				</div>
+				<h3>{{p["naziv"]}}</h3>
+				<p>{{p["cena"]}} &euro;</p>
+				{% if session['_id'] == p["ProdavacId"] or session['tip_korisnika'] == 'admin' %}
+				<div class="opcije">
+					<a href="/update/{{p["_id"]}}" class="table-link text-secondary ">
+						<span class="fa-stack">
+							<i class="fa fa-square fa-stack-2x"></i>
+							<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+						</span>
+					</a>
+					<a href="/delete/{{p["_id"]}}" class="table-link text-danger potvrdi">
+						<span class="fa-stack">
+							<i class="fa fa-square fa-stack-2x"></i>
+							<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+						</span>
+					</a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% if session['tip_korisnika'] == 'admin' %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th><span>Korisnik</span></th>
+				<th><span>Tip</span></th>
+				<th><span>Email</span></th>
+				<th><span>Opcije</span></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for k in korisnici %}
+			<tr>
+				<td><img src="{{k["slika"]}}" alt="korisnik"><b>{{k["korisnicko_ime"]}}</b></td>
+				<td>{{k["tip_korisnika"]}}</td>
+				<td>{{k["email"]}}</td>
+				<td>
+					<a href="/update/{{k["_id"]}}" class="table-link text-secondary">
+						<span class="fa-stack">
+							<i class="fa fa-square fa-stack-2x"></i>
+							<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+						</span>
+					</a>
+					<a href="/delete/{{k["_id"]}}" class="table-link text-danger potvrdi">
+						<span class="fa-stack">
+							<i class="fa fa-square fa-stack-2x"></i>
+							<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+						</span>
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+</div>
+{% endblock %}

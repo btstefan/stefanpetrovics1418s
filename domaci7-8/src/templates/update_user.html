@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+
+{% block head %}
+	<title>Update</title>
+{% endblock %}
+{% block body %}
+    <div class="content-section">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Izmeni korisnika</legend>
+                <img id="slika_korisnika" src="{{k['slika']}}">
+                <div class="form-group">
+                    <label>Korisnicko ime</label>
+                    <!-- polje ispod se ne koristi -->
+                    <input class="form-control form-control-md" value="{{k['korisnicko_ime']}}" disabled>
+                </div>
+                <div class="form-group">
+                    {{ form.email.label }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-md is-invalid", value=k['email']) }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>Email adresa nije validna!</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-md", value=k['email']) }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-md") }}
+                </div>
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="form-control-label") }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>Lozinke se ne poklapaju!</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.pol.label(class="form-control-label") }}
+                    {{ form.pol(class="form-control form-control-md") }}
+                </div>
+                <div class="form-group">
+                    {{ form.godina_rodjenja.label(class="form-control-label") }}
+                    {{ form.godina_rodjenja(class="form-control form-control-md", value=k['godina_rodjenja']) }}
+                </div>
+                <div class="form-group">
+                    {{ form.tip_korisnika.label(class="form-control-label") }}
+                    {{ form.tip_korisnika(class="form-control form-control-md") }}
+                </div>
+                <div class="form-group">
+                    {{ form.slika.label(class="form-control-label") }}<br/>
+                    {{ form.slika(class="form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.datum.label(class="form-control-label") }}<br/>
+                    {{ form.datum(class="form-control form-control-md", value=k['registrovan']) }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-danger btn-lg btn-block") }}
+            </div>
+        </form>
+    </div>
+    <div class="broder-top pt-3">
+        <small class="text-muted">
+            Već imate profil? <a class="ml-2" href="{{ url_for('login') }}">Prijavi se</a>
+        </small>
+    </div>
+{% endblock %}

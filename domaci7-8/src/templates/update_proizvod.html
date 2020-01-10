@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block head %}
+	<title>Update</title>
+{% endblock %}
+{% block body %}
+    <div class="content-section">
+        <div class="col-md-6">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Izmeni proizvod</legend>
+                <div class="form-group">
+                    <label>ID proizvoda</label>
+                    <!-- polje ispod se ne koristi -->
+                    <input class="form-control form-control-md" value="{{p['_id']}}" disabled>
+                </div>
+                <div class="form-group">
+                    {{ form.naziv.label }}
+                    {{ form.naziv(class="form-control form-control-md", value=p['naziv']) }}
+                </div>
+                <div class="form-group">
+                    {{ form.cena.label }}
+                    {{ form.cena(class="form-control form-control-md", value=p['cena']) }}
+                </div>
+                <div class="form-group">
+                    {{ form.kolicina.label }}
+                    {{ form.kolicina(class="form-control form-control-md", value=p['kolicina']) }}
+                </div>
+                <div class="form-group">
+                    {{ form.slika.label }}<br/>
+                    {{ form.slika(class="form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.prodavac.label }}<br/>
+                    {{ form.prodavac(class="form-control form-control-md", value=p['ProdavacId']) }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-danger btn-lg btn-block") }}
+            </div>
+        </form>
+        </div>
+    </div>
+    <div class="broder-top pt-3">
+        <small class="text-muted">
+            Dodaj proizvod? <a class="ml-2" href="{{ url_for('dodaj_proizvod') }}">Dodaj proizvod</a>
+        </small>
+    </div>
+{% endblock %}
