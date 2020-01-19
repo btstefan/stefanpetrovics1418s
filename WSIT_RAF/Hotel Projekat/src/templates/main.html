@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico')}}">
+    <script src="{{ url_for('static', filename='js/datum.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% with poruke = get_flashed_messages(with_categories=true) %}
+        {% if poruke %}
+            {% for vrsta, poruka in poruke %}
+                <div class="obavestenje okvir">
+                    {{ poruka }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+</body>
+</html>

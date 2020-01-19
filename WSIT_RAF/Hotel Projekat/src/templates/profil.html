@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_login.css')}}">
+	<title>Izmeni profil</title>
+{% endblock %}
+
+{% block body %}
+    <div id="profil_div">
+        <div class="okvir">
+            <div class="korisnik">
+                <div class="korisnik_img">
+                    <img src="{{ korisnik['slika'] }}" alt="korisnik">
+                </div>
+                <h1>{{ korisnik['korisnicko_ime'] }}</h1>
+                <br/>
+                <h1>Lista rezervacija</h1>
+                <img src="/static/img/line2.png">
+                <table>
+                    <thead>
+                        <th>Broj sobe</th>
+                        <th>Vreme</th>
+                        <th>Prijava</th>
+                        <th>Odjava</th>
+                        <th>Opcije</th>
+                    </thead>
+                    <tbody>
+                    {% for rezervacija in lista_rezervacija %}
+                        <tr>
+                            <td>#{{rezervacija['soba_id']}}</td>
+                            <td>{{rezervacija['vreme']}}</td>
+                            <td>{{rezervacija['pocetni_datum']}}</td>
+                            <td>{{rezervacija['datum_odjave']}}</td>
+                            <td>
+                                <a href="/obrisi/rezervaciju/korisnik/{{rezervacija["_id"]}}" class="obrisi" title="Obriši">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                </table>
+                <h1>Izmeni profil</h1>
+                <img src="/static/img/line2.png">
+                <form method="POST" enctype="multipart/form-data" autocomplete="off">
+                    {{ k.hidden_tag() }}
+                    {% if k.ime_prezime.errors %}
+                        {{ k.ime_prezime(value=korisnik['ime_prezime']) }}
+                        <span>Polje nije ispravno</span>
+                    {% else %}
+                        {{ k.ime_prezime(value=korisnik['ime_prezime']) }}
+                    {% endif %}
+                    {% if k.email.errors %}
+                        {{ k.email(value=korisnik['email']) }}
+                        <span>Email adresa nije validna!</span>
+                    {% else %}
+                        {{ k.email(value=korisnik['email']) }}
+                    {% endif %}
+                    {{ k.godina_rodjenja(value=korisnik['godina_rodjenja']) }}
+                    {{ k.password() }}
+                    {% if k.confirm_password.errors %}
+                        {{ k.confirm_password() }}
+                        <span>Lozinke se ne poklapaju!</span>
+                    {% else %}
+                        {{ k.confirm_password() }}
+                    {% endif %}
+                    {{ k.telefon(value=korisnik['telefon']) }}
+                    {{ k.slika(class="slika") }}
+                    {{ k.submit(class="potvrdi") }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
