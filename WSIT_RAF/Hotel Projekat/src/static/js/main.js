@@ -45,7 +45,7 @@ $(document).ready(function() {
 	$("#mob_btn").click(function() { 
 		$(".mob_nav").toggleClass('mob_class');
 	});
-	$(".mob_nav").click(function() { 
+	$(".mob_nav a").click(function() { 
 		$(".mob_nav").toggleClass('mob_class');
 	});
 });
