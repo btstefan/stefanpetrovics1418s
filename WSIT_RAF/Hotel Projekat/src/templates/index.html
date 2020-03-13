@@ -6,6 +6,9 @@
 
 {% block body %}
 	<div id="pocetna">
+		<div id="ves">
+			
+		</div>
 		<header>
 			<div class="info">
 				<div class="okvir">
@@ -17,20 +20,19 @@
 					</div>
 				</div>
 			</div>
-			<nav>
+			<nav id="navigacija" class="navigacija">
 				<div class="okvir">
-
-					<!--<div class="logo"></div>-->
-					<h2><a href="#">HOTEL</h2>
-					
-					<div id="mob_btn">
+					<div class="mob_btn">
 						<i class="fa fa-bars"></i>
 					</div>
-
+					<!--<div class="logo"></div>-->
+					<h2><a href="{{url_for('index')}}">HOTEL</h2>
+						
 					<div class="mob_nav">
 						<ul class="lista_nav">
-							<li><a href="#">Početna</a></li>
-							<li><a href="#info1">Informacije</a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#info1">About us</a></li>
+							<li><a href="#kontakt">Contact</a></li>
 						</ul>
 						<div class="login">
 							{% if '_id' in session %}
@@ -45,10 +47,10 @@
 								</div>
 								<div class="profil_info">
 									<ul>
-										<li><a href="/profil/{{ session['_id'] }}">profil</a></li>
-										<li><a href="#">rezerviši sobu</a></li>
-										<li><a href="/profil/{{ session['_id'] }}">izmeni profil</a></li>
-										<li><a href="{{ url_for('logout') }}">izloguj se</a></li>
+										<li><a href="/profil/{{ session['_id'] }}">profile</a></li>
+										<li><a href="/profil/{{ session['_id'] }}">reservations</a></li>
+										<li><a href="/profil/{{ session['_id'] }}">edit profile</a></li>
+										<li><a href="{{ url_for('logout') }}">logout</a></li>
 									</ul>
 								</div>
 							</div>
@@ -56,10 +58,10 @@
 							<form method="POST" action="/login" autocomplete="off">
 								{{ login.username(class="usr") }}
 								{{ login.password() }}
-								<button class="login_btn" type="submit" title="Uloguj se">
-									<i class="fa fa-sign-in"></i>
+								<button class="login_btn" type="submit" title="Sing In">
+									<i class="fa fa-angle-right"></i>
 								</button><br/>
-								<div class="link_reg">Nemate profil? <a href="#" class="registruj">REGISTRUJ SE</a></div>
+								<div class="link_reg">Don't have an account? <a href="#" class="registruj">SIGN UP</a></div>
 							</form>
 							{% endif %}
 						</div>
@@ -74,69 +76,69 @@
 			</div>
 		</div>
 		<div id="registracija">
-			<h1>Registracija</h1>
-			<img src="/static/img/line2.png">
+			<h1>Registration</h1>
+			<img src="/static/img/ln2.png" alt="linija">
 			<form method="POST" enctype="multipart/form-data" autocomplete="off">
 				{{ form.hidden_tag() }}
 				<div class="reg_content">
 					<div class="levo">
-						{% if form.username.errors %}
-							{{ form.username() }}
+						{% if form.r_username.errors %}
+							{{ form.r_username() }}
 							<span>Korisnicko ime nije ispravno!</span>
 						{% else %}
-							{{ form.username(class="form-control form-control-md") }}
+							{{ form.r_username() }}
 						{% endif %}
-						{% if form.ime_prezime.errors %}
-							{{ form.ime_prezime(class="form-control form-control-md is-invalid") }}
+						{% if form.r_ime_prezime.errors %}
+							{{ form.r_ime_prezime() }}
 							<span>Polje nije ispravno</span>
 						{% else %}
-							{{ form.ime_prezime(class="form-control form-control-md") }}
+							{{ form.r_ime_prezime() }}
 						{% endif %}
-						{% if form.email.errors %}
-							{{ form.email(class="form-control form-control-md is-invalid") }}
+						{% if form.r_email.errors %}
+							{{ form.r_email() }}
 							<span>Email adresa nije validna!</span>
 						{% else %}
-							{{ form.email(class="form-control form-control-md") }}
+							{{ form.r_email() }}
 						{% endif %}
-						{{ form.godina_rodjenja(class="form-control form-control-md") }}
+						{{ form.r_godina_rodjenja() }}
 					</div>
 					<div class="desno">
-						{{ form.password() }}
-						{% if form.confirm_password.errors %}
-							{{ form.confirm_password() }}
+						{{ form.r_password() }}
+						{% if form.r_confirm_password.errors %}
+							{{ form.r_confirm_password() }}
 							<span>Lozinke se ne poklapaju!</span>
 						{% else %}
-							{{ form.confirm_password(class="form-control form-control-md") }}
+							{{ form.r_confirm_password() }}
 						{% endif %}
-						{{ form.telefon() }}
-						{{ form.slika(class="slika") }}
+						{{ form.r_telefon() }}
+						{{ form.r_slika(class="slika") }}
 					</div>
 				</div>
-				{{ form.submit(class="potvrdi") }}
+				{{ form.r_submit(class="potvrdi") }}
 			</form>
 		</div>
 		<div id="naslov" class="okvir">
-			<img src="/static/img/line1.png">
-			<h1>TheBest Hotel</h1>
-			<h2>Luxury Resort & Spa</h2>
-			<img src="/static/img/line2.png">
+			<img src="/static/img/y2.png" alt="linija1" class="linija1">
+			<h1>Balkan Hotel</h1>
+			<h2>The Best In Serbia</h2>
+			<img src="/static/img/ln2.png" alt="linija2" class="linija2">
 
 			<form id="TestDatum" class="input_polja" method="POST">
 				<div class="polje_x">
 					<div class="polje">
-						<label>Prijava:</label><br/>
+						<label>Check-in:</label><br/>
 						<input class="datum prijava" name="p" type="date" data-date="" format-datuma="DD MMMM YYYY">
 					</div>
 				</div>
 				<div class="polje_x">
 					<div class="polje">
-						<label>Odjava:</label>
+						<label>Check-out:</label>
 						<input class="datum odjava" name="o" type="date" data-date="" format-datuma="DD MMMM YYYY">
 					</div>
 				</div>
 				<div class="polje_x">
 					<div class="polje">
-						<label>Broj osoba:</label><br/>
+						<label>Guest:</label><br/>
 						<select id="osobe22">
 							<option>1</option>
 							<option>2</option>
@@ -147,7 +149,7 @@
 				</div>
 				<div class="polje_x">
 					<div id="btn_rezervisi">
-						<input id="proveri_r" type="submit" value="Rezerviši">
+						<input id="proveri_r" type="submit" value="Check Availability">
 					</div>
 				</div>
 			</form>
@@ -162,45 +164,112 @@
 		</div>
 	</div>
 	<div id="rezervisi">
-		<h1>Rezerviši sobu</h1>
-		<img src="/static/img/line2.png">
+		<h1>Reservation</h1>
+		<img src="/static/img/ln2.png" alt="linija">
 
-		<form method="POST" action="/rezervacija">
-			<p>Broj sobe: {{session['brojSobe']}}</p>
-			
-			{% if '_id' in session %}
-			<h2>{{session['usr']}}</h2>
-			<div class="slika_okvir">
-				<img src="{{session['slika']}}">
-			</div>
-			{% else %}
+		<form id="rezervisiSobu" method="POST" action="/rezervacija">
+			<table>
+				<tr>
+					<td>Room number:</td>
+					<td><span>#</span><span id="broj_sobe"></span></td>
+				</tr>
+				<tr>
+					<td>Number of days:</td>
+					<td><span id="rez_dani"></span></td>
+				</tr>
+				<tr>
+					<td>Price per day:</td>
+					<td><span id="cena_sobe"></span> <span>&euro;</span></td>
+				</tr>
+				<tr>
+					<td>Final price:</td>
+					<td><span id="total"></span> <span>&euro;</span></td>
+				</tr>
+			</table>
+			{% if '_id' not in session %}
 			{{ rezervacija.ime_prezime() }}
 			{{ rezervacija.email() }}
 			{{ rezervacija.telefon() }}
 			{% endif %}
-			<p>Potvrdi rezervaciju klikom na dugme ispod</p>
 			{{ rezervacija.submit(class="potvrdi") }}
 		</form>
 	</div>
 
 	<div id="info1">
-		<div class="info_div"><img class="poz_slika" src="/static/img/info/1.jpg"></div>
+		<div class="info_div"><img class="poz_slika" src="/static/img/info/1.jpg" alt="info"></div>
 		<div class="info_div text">
 			<h1>Great Services</h1>
-			<img src="/static/img/line2.png">
+			<img src="/static/img/ln2.png" alt="linija">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ut enim ad mini veniam, quis nostrud exercitation.</p>
 		</div>
-		<div class="info_div"><img class="poz_slika" src="/static/img/info/2.jpg"></div>
+		<div class="info_div"><img class="poz_slika" src="/static/img/info/2.jpg" alt="info"></div>
 		<div class="info_div text">
 			<h1>Professional Staff</h1>
-			<img src="/static/img/line2.png">
+			<img src="/static/img/ln2.png" alt="linija">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ut enim ad mini veniam, quis nostrud exercitation.</p>
 		</div>
-		<div class="info_div"><img class="poz_slika" src="/static/img/info/3.jpg"></div>
+		<div class="info_div"><img class="poz_slika" src="/static/img/info/3.jpg" alt="info"></div>
 		<div class="info_div text">
 			<h1>Best Experience</h1>
-			<img src="/static/img/line2.png">
+			<img src="/static/img/ln2.png" alt="linija">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ut enim ad mini veniam, quis nostrud exercitation.</p>
 		</div>
 	</div>
+	<div id="info2">
+		<div id="info_div">
+			<div class="broj">
+				<span class="brs brSoba">490</span>
+				<span class="broj_text">rooms</span>
+			</div>
+			<div class="broj">
+				<span class="brs">1</span>
+				<span class="broj_text">SPA center</span>
+			</div>
+			<div class="broj">
+				<span class="brs">10</span>
+				<span class="broj_text">Restaurants</span>
+			</div>
+		</div>
+	</div>
+	<div id="kontakt">
+		
+		<div class="kontakt_div">
+			<div class="okvir2">
+				<h1>Contact Us</h1>
+				<img src="/static/img/ln2.png" alt="linija"><br/>
+				<form id="kontaktForm" method="POST" autocomplete="off">
+					<input type="text" class="polje" id="p_ime_prezime" placeholder="Name and surname" required>
+					<input type="email" class="polje" id="p_email" placeholder="Email address" required>
+					<textarea class="polje" id="p_poruka" placeholder="Message..." required></textarea>
+					<input type="submit" value="Send">
+				</form>
+				<div class="obavestenje3 success">
+					<h2><i class="fa fa-check"></i> Success</h2>
+					<p>Your message has been successfully sent.<br/> We will contact you very soon!</p>
+				</div>
+				<div class="obavestenje3 error">sc
+					<h2><i class="fa fa-times"></i> Error</h2>
+					<p>There was a problem sending your message.<br/> Pleace try again later or call us!<br/><span><i class="fa fa-phone"></i> &nbsp;+381 64-4810738</span></p>
+				</div>
+				<div class="obavestenje3 sending">
+					<h2>Sending</h2>
+					<p class="sending">
+						<span></span>
+						<span></span>
+						<span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="okvir">
+			&copy; Copyright 2020 <a href="#">Stefan Petrović</a>
+			<div class="social">
+				<a href="#"><i class="fa fa-facebook-f"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-youtube-play"></i></a>
+			</div>
+		</div>
+	</footer>
 {% endblock %}

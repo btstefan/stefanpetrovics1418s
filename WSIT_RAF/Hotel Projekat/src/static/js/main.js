@@ -42,11 +42,15 @@ $(document).ready(function ()
 });
 
 $(document).ready(function() {
-	$("#mob_btn").click(function() { 
+	$(".mob_btn").click(function() { 
 		$(".mob_nav").toggleClass('mob_class');
 	});
 	$(".mob_nav a").click(function() { 
 		$(".mob_nav").toggleClass('mob_class');
+	});
+	$(".ime").click(function() { 
+		$(".slika_korisnika").toggleClass('mob_class');
+		$(".profil_info").toggleClass('mob_class');
 	});
 });
 
@@ -77,18 +81,21 @@ $(document).ready(function()
 				datum1 : datum_prijave,
 				datum2 : datum_odjave,
 				osobe : osobe
-			},
-			type : 'POST',
+			}, 
+			type : 'POST', 
 			url : '/rezervisi'
 		})
 		.done(function(data) {
-
 			if (data.error) {
 				$('.obavestenje2').text(data.error);
 			}
 			else {
 				$('.obavestenje2').text(data.poruka).show();
 				$("#rezervacija_wrap").css('display', 'block');
+				$('#broj_sobe').text(data.soba);
+				$('#cena_sobe').text(data.cena);
+				$('#rez_dani').text(data.dani);
+				$('#total').text(data.total);
 				$('#rezervisi').css('display', 'block');
 			}
 		});
@@ -100,5 +107,36 @@ $(document).ready(function () {
 	$("#rezervacija_wrap").click(function() { 
 		$("#rezervacija_wrap").css('display', 'none');
 		$('#rezervisi').css('display', 'none');
+	});
+});
+
+$(document).ready(function() 
+{
+	$('#kontaktForm').on('submit', function(event) {
+		var ip = $('#p_ime_prezime').val();
+		var e = $('#p_email').val();
+		var p = $('#p_poruka').val();
+		$('#kontaktForm').css('display', 'none')
+		$('.sending').css('display', 'block')
+		$.ajax({
+			data : {
+				ime_prezime : ip,
+				email : e,
+				poruka : p
+			},
+			type : 'POST',
+			url : '/kontakt'
+		})
+		.done(function(data) {
+			if(data.error) {
+				$('.sending').css('display', 'none')
+				$('.error').css('display', 'block')
+			}
+			else {
+				$('.sending').css('display', 'none')
+				$('.success').css('display', 'block')
+			}
+		});
+		event.preventDefault();
 	});
 });

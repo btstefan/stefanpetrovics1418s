@@ -2,27 +2,30 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_login.css')}}">
-	<title>Izmeni profil</title>
+	<title>Edit profile</title>
 {% endblock %}
 
 {% block body %}
     <div id="profil_div">
         <div class="okvir">
             <div class="korisnik">
+                <a class="home_link" href="{{url_for('index')}}"><i class="fa fa-home"></i> Home page</a>
                 <div class="korisnik_img">
                     <img src="{{ korisnik['slika'] }}" alt="korisnik">
                 </div>
                 <h1>{{ korisnik['korisnicko_ime'] }}</h1>
+                <a class="logout_profil" href="{{ url_for('logout') }}">logout</a>
                 <br/>
-                <h1>Lista rezervacija</h1>
-                <img src="/static/img/line2.png">
+                <h1>Reservations</h1>
+                <img src="/static/img/ln2.png" alt="linija">
+                {% if show %}
                 <table>
                     <thead>
-                        <th>Broj sobe</th>
-                        <th>Vreme</th>
-                        <th>Prijava</th>
-                        <th>Odjava</th>
-                        <th>Opcije</th>
+                        <th>Room number</th>
+                        <th>Time</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Cancel</th>
                     </thead>
                     <tbody>
                     {% for rezervacija in lista_rezervacija %}
@@ -40,8 +43,13 @@
                      {% endfor %}
                     </tbody>
                 </table>
-                <h1>Izmeni profil</h1>
-                <img src="/static/img/line2.png">
+                {% else %}
+                    <div class="nores">
+                        <p>List of reservations is empty. Make one for free.</p>
+                    </div>
+                {% endif %}
+                <h1>Edit Profile</h1>
+                <img src="/static/img/ln2.png" alt="linija">
                 <form method="POST" enctype="multipart/form-data" autocomplete="off">
                     {{ k.hidden_tag() }}
                     {% if k.ime_prezime.errors %}

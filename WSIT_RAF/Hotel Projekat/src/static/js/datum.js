@@ -1136,8 +1136,8 @@
         var e = c._locale.monthsParse(a, d, c._strict);
         null != e ? b[cd] = e : j(c).invalidMonth = a
     });
-    var id = "Januar_Februar_Mart_April_Maj_Jun_Jul_Avgust_Septembar_Oktobar_Novembar_Decembar".split("_"),
-        jd = "Jan_Feb_Mar_Apr_Maj_Jun_Jul_Avg_Sep_Okt_Nov_Dec".split("_"),
+    var id = "January_February_March_April_May_June_July_August_September_October_November_December".split("_"),
+        jd = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),
         kd = {};
     a.suppressDeprecationWarnings = !1;
     var ld = /^\s*(?:[+-]\d{6}|\d{4})-(?:(\d\d-\d\d)|(W\d\d$)|(W\d\d-\d)|(\d\d\d))((T| )(\d\d(:\d\d(:\d\d(\.\d+)?)?)?)?([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,

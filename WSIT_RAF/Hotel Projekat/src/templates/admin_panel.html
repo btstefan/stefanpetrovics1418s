@@ -9,23 +9,23 @@
     <div id="adminpanel">
         <div class="admin_nav">
             <h1>Admin panel</h1>
-            <img src="/static/img/line2.png" alt="linija">
+            <img src="/static/img/ln2.png" alt="linija" width="100px">
             <h2>{{session['admin_ime']}}</h2>
-            <a href="{{ url_for('admin_logout') }}">izloguj se</a>
+            <a href="{{ url_for('admin_logout') }}">logout</a>
         </div>
         <div class="admin_str">
-            <h2>Sve rezervacije:</h2>
+            <h2 class="admin_header">Reservations</h2>
             <table class="tabela">
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
-                        <th><span>Korisnik</span></th>
-                        <th><span>Vreme</span></th>
+                        <th><span>User</span></th>
+                        <th><span>Time</span></th>
                         <th><span>Email</span></th>
-                        <th><span>Broj sobe</span></th>
-                        <th><span>Prijava</span></th>
-                        <th><span>Odjava</span></th>
-                        <th><span>Opcije</span></th>
+                        <th><span>Room number</span></th>
+                        <th><span>Check-in</span></th>
+                        <th><span>Check-out</span></th>
+                        <th><span>Options</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,17 +47,17 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <h2>Svi korisnici:</h2>
+            <h2 class="admin_header">Users</h2>
             <table class="tabela">
                 <thead>
                     <tr>
                         <th>&nbsp;</th>
-                        <th><span>Korisnik</span></th>
-                        <th><span>Ime i prezime</span></th>
+                        <th><span>User</span></th>
+                        <th><span>Name and surname</span></th>
                         <th><span>Email</span></th>
-                        <th><span>Godina rodjenja</span></th>
-                        <th><span>Telefon</span></th>
-                        <th><span>Opcije</span></th>
+                        <th><span>Year of birth</span></th>
+                        <th><span>Phone number</span></th>
+                        <th><span>Options</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,7 +81,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <h2>Sobe</h2>
+            <h2 class="admin_header">Rooms</h2>
             <form id="dodajSobu" method="POST">
                 {{ soba.hidden_tag() }}
                 {{ soba.broj_sobe() }}
@@ -92,10 +92,10 @@
             <table class="tabela sobe">
                 <thead>
                     <tr>
-                        <th><span>Broj sobe</span></th>
-                        <th><span>Broj kreveta</span></th>
-                        <th><span>Cena noćenja</span></th>
-                        <th><span>Opcije</span></th>
+                        <th><span>Room number</span></th>
+                        <th><span>Bed count</span></th>
+                        <th><span>Price per night</span></th>
+                        <th><span>Options</span></th>
                     </tr>
                 </thead>
                 <tbody>

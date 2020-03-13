@@ -7,11 +7,12 @@
 
 {% block body %}
 <div id="admin_win">
+	<div id="admin_wrap"></div>
 	<div id="admin_form">
 		<form method="POST" autocomplete="off">
 			{{ admin.hidden_tag() }}
 			<h1>Admin Panel</h1>
-			<img src="/static/img/line2.png" alt="linija">
+			<img src="/static/img/ln2.png" alt="linija">
 
 			<div class="form-group">
 				{% if admin.username.errors %}

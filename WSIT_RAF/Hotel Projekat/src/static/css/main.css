@@ -4,6 +4,19 @@ body {
   color: #e6e6e6;
   background: #101010;
 }
+.mob_class {
+  display: block !important;
+}
+#ves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+  max-width: 1250px;
+}
 .okvir {
   position: relative;
   width: 90%;
@@ -33,13 +46,29 @@ select {
 }
 .obavestenje2 {
   display: none;
-  font-family: 'Arial' sans-serif;
+  width: 100%;
+  font-family: 'Source Sans Pro' sans-serif;
   font-size: 14px;
   box-sizing: border-box;
+  letter-spacing: 2px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.541);
-  margin-top: 10px;
+  margin: -40px 0 90px 0;
+  font-weight: normal;
+  background: rgba(0, 0, 0, 0.8);
+  color: #e4c07d;
   border: 1px solid #564C3B;
+}
+.social {
+  float: right;
+}
+.social a {
+  color: #B3B3B3;
+  padding: 10px;
+  margin: 0;
+  font-size: 15px;
+}
+.social a:hover {
+  color: #C19237;
 }
 #pocetna {
   z-index: 2;
@@ -69,18 +98,6 @@ select {
   border-bottom: 1px solid #564C3B;
   color: #B3B3B3;
 }
-#pocetna header .info .social {
-  float: right;
-}
-#pocetna header .info .social a {
-  color: #B3B3B3;
-  padding: 10px;
-  margin: 0;
-  font-size: 15px;
-}
-#pocetna header .info .social a:hover {
-  color: #C19237;
-}
 #pocetna header nav {
   position: relative;
   margin-top: 30px;
@@ -90,20 +107,29 @@ select {
 @media screen and (max-width: 1000px) {
   #pocetna header nav .mob_nav {
     background: #1d1d1d;
-    width: 50%;
     display: none;
-    min-width: 200px;
+    width: 80%;
+    max-width: 400px;
     position: fixed;
-    top: 200px;
+    top: 140px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
     left: 0;
     right: 0;
     margin: 0 auto;
-    z-index: 999999;
+    z-index: 99999999;
+    box-sizing: border-box;
+    padding: 50px 0;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
   }
   #pocetna header nav .mob_nav .lista_nav {
     padding: 0;
-    margin: 50px 0;
+    margin-bottom: 50px;
     display: block;
+    background: #1a1a1a;
     width: 100%;
   }
   #pocetna header nav .mob_nav .lista_nav li {
@@ -113,21 +139,18 @@ select {
     padding: 0;
     width: 100%;
   }
-  #pocetna header nav .mob_class {
-    display: block;
+  #pocetna header nav .mob_nav::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
-  #pocetna header nav #mob_btn {
+  #pocetna header nav .mob_btn {
     float: right;
     font-size: 37px;
-    right: 0;
+    right: 20px;
     top: 0;
     height: 50px;
     width: 50px;
-  }
-}
-@media screen and (max-width: 700px) {
-  #pocetna header nav .mob_nav {
-    width: 80%;
+    cursor: pointer;
   }
 }
 #pocetna header nav h1 {
@@ -167,6 +190,7 @@ select {
   color: #d4a752;
 }
 #pocetna header nav .login {
+  position: relative;
   float: right;
   margin-top: 10px;
 }
@@ -174,11 +198,11 @@ select {
   #pocetna header nav .login {
     float: unset;
     display: block;
-    overflow: auto;
-    height: 340px;
+    overflow: hidden;
   }
 }
 #pocetna header nav .login #profil {
+  position: relative;
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
@@ -187,6 +211,14 @@ select {
   height: 50px;
   cursor: pointer;
 }
+@media screen and (max-width: 1000px) {
+  #pocetna header nav .login #profil {
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    height: unset;
+  }
+}
 #pocetna header nav .login #profil .slika_korisnika {
   position: relative;
   width: 50px;
@@ -194,24 +226,32 @@ select {
   overflow: hidden;
   box-sizing: border-box;
   border-radius: 50%;
+  border: 2px solid #e4c07d;
 }
 #pocetna header nav .login #profil .slika_korisnika img {
   object-fit: cover;
   min-width: 100%;
   height: 100%;
-}
-@media screen and (max-width: 1000px) {
-  #pocetna header nav .login #profil .slika_korisnika {
-    text-align: center;
-    margin: 20px 0;
-    display: block;
-  }
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 #pocetna header nav .login #profil .ime {
+  position: relative;
   display: flex;
+  box-sizing: border-box;
   vertical-align: middle;
   text-align: right;
   font-family: 'Playfair Display', serif;
+}
+@media screen and (max-width: 1000px) {
+  #pocetna header nav .login #profil .ime {
+    text-align: center;
+    margin: 20px 0;
+    display: block;
+    vertical-align: unset;
+    padding: 10px 0;
+    background: #1a1a1a;
+  }
 }
 #pocetna header nav .login #profil .ime p {
   color: #f3c469;
@@ -230,27 +270,29 @@ select {
   color: #d1d1d1;
   text-decoration: underline;
 }
-@media screen and (max-width: 1000px) {
-  #pocetna header nav .login #profil .ime {
-    text-align: center;
-    margin: 10px 0;
-    display: block;
-  }
-}
 #pocetna header nav .login #profil .profil_info {
   visibility: hidden;
   position: absolute;
   background: rgba(0, 0, 0, 0.541);
-  width: 150px;
+  width: 160px;
   right: 0;
   top: 60px;
   transition: 0.2s ease-out all;
   z-index: 99999;
 }
+@media screen and (max-width: 1000px) {
+  #pocetna header nav .login #profil .profil_info {
+    visibility: unset;
+    background: transparent;
+    position: relative;
+    margin-top: 20px;
+  }
+}
 #pocetna header nav .login #profil .profil_info ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  border: 1px solid #564C3B;
 }
 #pocetna header nav .login #profil .profil_info ul li a {
   font-family: 'Source Sans Pro', sans-serif;
@@ -263,21 +305,20 @@ select {
   color: #B3B3B3;
 }
 #pocetna header nav .login #profil .profil_info ul li a:hover {
-  background: linear-gradient(-45deg, #926f0d, #ab8826, #bf9c3a, #ab8826, #926f0d);
-  color: #fff;
+  color: #e4c07d;
+}
+#pocetna header nav .login #profil .profil_info ul li:first-child {
+  margin-top: 10px;
 }
 #pocetna header nav .login #profil .profil_info ul li:last-child {
   margin-top: 20px;
-  background: #E2C285;
+  background: #c6a25f;
 }
 #pocetna header nav .login #profil .profil_info ul li:last-child a {
   color: #101010;
 }
-@media screen and (max-width: 1000px) {
-  #pocetna header nav .login #profil .profil_info {
-    margin-top: 20px;
-    background: transparent;
-  }
+#pocetna header nav .login #profil .profil_info ul li:last-child a:hover {
+  background: #e4c07d;
 }
 #pocetna header nav .login #profil:hover > .profil_info,
 #pocetna header nav .login #profil .profil_info:hover {
@@ -293,11 +334,12 @@ select {
   #pocetna header nav .login #profil .slika_korisnika {
     text-align: center;
     margin: 0 auto;
+    display: none;
   }
   #pocetna header nav .login #profil .profil_info {
     visibility: visible;
     position: relative;
-    display: block;
+    display: none;
     width: 100%;
     top: 0;
   }
@@ -322,9 +364,16 @@ select {
   width: 30px;
   height: 30px;
   margin-left: 10px;
+  box-sizing: border-box;
   transform: translateY(1px);
-  background: #E2C285;
+  background: #e4c07d;
   color: #414141;
+}
+#pocetna header nav .login .login_btn:hover {
+  border: 1px solid #564C3B;
+  background: #000;
+  color: #e4c07d;
+  padding: 0;
 }
 #pocetna header nav .login .link_reg {
   font-family: Arial, Helvetica, sans-serif;
@@ -345,11 +394,16 @@ select {
     margin-bottom: 20px;
     width: 100%;
     background: #181818;
+    padding: 20px 0;
+    border-color: #181818;
+  }
+  #pocetna header nav .login input:focus {
+    border-color: #e4c07d;
   }
   #pocetna header nav .login .login_btn {
     width: 100%;
     margin: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 #pocetna header nav .usr {
@@ -375,14 +429,18 @@ select {
   font-family: 'Playfair Display', serif;
   letter-spacing: 5px;
   font-weight: 700;
+  color: #d4d4d4;
+  overflow: auto;
 }
 #pocetna #naslov h1 {
+  font-weight: 100;
   margin: 0;
   font-size: 100px;
 }
 #pocetna #naslov h2 {
   margin: 0 0 30px 0;
   font-size: 40px;
+  font-weight: 100;
 }
 @media screen and (max-width: 1000px) {
   #pocetna #naslov h1 {
@@ -391,6 +449,17 @@ select {
   #pocetna #naslov h2 {
     font-size: 4vw;
   }
+}
+@media screen and (max-width: 550px) {
+  .linija1 {
+    width: 60vw;
+  }
+  .linija2 {
+    width: 20vw;
+  }
+}
+#TestDatum {
+  margin-bottom: 80px;
 }
 #info {
   width: 100%;
@@ -514,7 +583,7 @@ select {
   border-radius: 5px;
 }
 #registracija .potvrdi:hover {
-  background: #E2C285;
+  background: #e4c07d;
   color: #1f1f1f;
 }
 .input_polja {
@@ -544,7 +613,7 @@ select {
   height: 110px !important;
 }
 .polje_x #btn_rezervisi input[type=submit] {
-  background: #E2C285;
+  background: #e4c07d;
   border: 0;
   width: 100%;
   height: 100%;
@@ -555,8 +624,9 @@ select {
   font-weight: bold;
 }
 .polje_x #btn_rezervisi input[type=submit]:hover {
+  border: 1px solid #564C3B;
   background: #101010;
-  color: #E2C285;
+  color: #e4c07d;
 }
 @media screen and (max-width: 1000px) {
   .polje_x #btn_rezervisi {
@@ -587,15 +657,39 @@ select {
   background: transparent;
   border: none;
   text-align: center;
-  font-size: 1.5em;
-  color: #E2C285;
-  font-weight: bold;
+  font-size: 20px;
+  color: #e4c07d;
   margin-top: 10px;
   cursor: pointer;
   background-image: url('../img/strela.png');
   background-repeat: no-repeat;
   background-position: right 1em top 50%, 0 0;
   background-size: 0.55em auto, 100%;
+}
+@media screen and (max-width: 1300px) {
+  .polje .datum {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .polje .datum {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1070px) {
+  .polje .datum {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .polje .datum {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .polje .datum {
+    font-size: 16px;
+  }
 }
 .polje .datum:before {
   position: absolute;
@@ -651,11 +745,11 @@ select {
   padding-left: 20px;
 }
 ::selection {
-  background: #E2C285;
+  background: #e4c07d;
   /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #E2C285;
+  background: #e4c07d;
   /* Gecko Browsers */
 }
 /* ======================================================================*/
@@ -672,6 +766,13 @@ select {
   background-size: cover;
   overflow: auto;
 }
+#admin_win #admin_wrap {
+  background: rgba(0, 0, 0, 0.514);
+  backdrop-filter: blur(2px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 #admin_win #admin_form {
   text-align: center;
   position: fixed;
@@ -682,11 +783,11 @@ select {
   margin: 0 auto;
   transform: translateY(-60%);
   width: 90%;
-  max-width: 500px;
+  max-width: 450px;
   border-top: 1px solid #926f0d;
   background: #1f1f1f;
   box-sizing: border-box;
-  padding: 50px;
+  padding: 50px 60px;
 }
 #admin_win #admin_form h1 {
   font-family: 'Playfair Display', serif;
@@ -725,40 +826,55 @@ select {
   border-radius: 5px;
 }
 #admin_win #admin_form .potvrdi:hover {
-  background: #E2C285;
+  background: #e4c07d;
   color: #1f1f1f;
 }
 #adminpanel {
   position: relative;
   overflow: auto;
+  background: #202020;
 }
 #adminpanel .admin_nav {
   position: fixed;
-  width: 250px;
+  width: 200px;
   height: 100vh;
   overflow-y: auto;
   padding: 20px;
-  background: #1d1d1d;
+  background: #191919;
   text-align: center;
+}
+#adminpanel .admin_nav h1 {
+  margin-top: 50px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #adminpanel .admin_nav h2 {
   margin-top: 100px;
+  color: #B3B3B3;
 }
 #adminpanel .admin_nav a {
-  color: #E2C285;
+  color: #e4c07d;
+}
+#adminpanel .admin_header {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  color: #999999;
 }
 #adminpanel .admin_str {
   font-size: 20px;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px 40px 20px 330px;
+  padding: 20px 40px 20px 280px;
 }
 #adminpanel .admin_str .tabela {
   width: 80%;
+  color: #9c9c9c;
   box-sizing: border-box;
   padding: 20px;
-  border-radius: 10px;
-  background: #272727;
+  border-radius: 6px;
+  background: #191919;
   margin-bottom: 20px;
   font-size: 16px;
   width: 100%;
@@ -771,7 +887,12 @@ select {
   width: 70px;
 }
 #adminpanel .admin_str .tabela thead tr th span {
-  color: #E2C285;
+  color: #e4c07d;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 200;
+  word-spacing: 4px;
 }
 #adminpanel .admin_str .tabela thead tr th:last-child {
   text-align: right;
@@ -783,10 +904,10 @@ select {
   border-radius: 50%;
   margin: 10px 20px;
   box-sizing: border-box;
-  border: 2px solid #E2C285;
+  border: 3px solid #464646;
 }
 #adminpanel .admin_str .tabela tbody tr td a {
-  color: #E2C285;
+  color: #e4c07d;
   padding: 10px;
 }
 #adminpanel .admin_str .tabela tbody tr td a:last-child:hover {
@@ -802,24 +923,24 @@ select {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
-  margin-bottom: 10px;
 }
 #adminpanel .admin_str #dodajSobu input {
   padding: 10px;
-  color: #E2C285;
-  background: #1a1a1a;
+  color: #e4c07d;
+  background: #161616;
   border: none;
   outline: none;
 }
 #adminpanel .admin_str #dodajSobu input[type=submit] {
-  background: #383838;
-  color: #d3d3d3;
+  color: #e4c07d;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
+  box-sizing: border-box;
+  border-left: 1px dashed #3f3f3f;
 }
 #adminpanel .admin_str #dodajSobu input[type=submit]:hover {
-  background: #E2C285;
+  background: #e4c07d;
   color: #000;
 }
 @media screen and (max-width: 1000px) {
@@ -886,7 +1007,7 @@ select {
   margin: 0 auto;
   transform: translateY(-50%);
   width: 90%;
-  max-width: 600px;
+  max-width: 500px;
   border-top: 1px solid #926f0d;
   background: #1f1f1f;
   box-sizing: border-box;
@@ -939,20 +1060,49 @@ select {
   font-size: 14px;
   width: 100%;
   cursor: pointer;
-  background: #474747;
-  color: #d8d8d8;
+  background: #e4c07d;
+  color: #1f1f1f;
   letter-spacing: 3px;
   font-weight: bold;
-  border: none;
+  box-sizing: border-box;
+  border: 1px solid #e4c07d;
   text-transform: uppercase;
-  border-radius: 5px;
+  transition: 0.4s all;
 }
 #rezervisi .potvrdi:hover {
-  background: #E2C285;
-  color: #1f1f1f;
+  background: #333333;
+  color: #e4c07d;
+  border-color: #564C3B;
 }
 #rezervisi h2 {
   margin-bottom: 10px;
+}
+#rezervisiSobu table {
+  font-family: 'Source Sans Pro';
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  width: 100%;
+  margin: 40px auto;
+}
+#rezervisiSobu table td {
+  font-size: 14px;
+  padding: 15px;
+  color: #b1b1b1;
+}
+#rezervisiSobu table td:nth-child(even) {
+  text-align: right;
+}
+#rezervisiSobu table td span {
+  color: #e4c07d;
+  text-align: right;
+}
+#rezervisiSobu table tr:nth-child(even) {
+  background: #292929;
+}
+#rezervisiSobu table tr:last-child td {
+  font-weight: bold;
+  font-size: 17px;
 }
 .slika_okvir {
   width: 70px;
@@ -970,40 +1120,65 @@ select {
 /*  Profil korisnika */
 /* ======================================================================*/
 #profil_div {
+  position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: url('../img/pozadina4.jpg') no-repeat center center;
+  overflow: hidden;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  overflow: visible;
+  background-attachment: fixed;
 }
 .obrisi:hover {
   color: red;
 }
 .korisnik {
+  overflow: hidden;
   text-align: center;
   width: 100%;
-  background: rgba(0, 0, 0, 0.541);
-  height: 100vh;
-  overflow: auto;
   background: #1f1f1f;
+  padding-top: 50px;
+}
+.korisnik .logout_profil {
+  color: #cacaca;
+  text-decoration: underline;
+  font-size: 16px;
+}
+.korisnik .logout_profil:hover {
+  color: #ececec;
+}
+.korisnik .home_link {
+  background: #181818;
+  padding: 10px 20px;
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  top: 0;
+  color: #979797;
+}
+.korisnik .home_link:hover {
+  color: #575757;
+  background: #dab673;
 }
 .korisnik .korisnik_img {
   margin: 20px auto;
   width: 150px;
   height: 150px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 5px solid #e4c07d;
+  border-radius: 50%;
 }
 .korisnik .korisnik_img img {
-  width: 100%;
+  min-width: 100%;
   height: 100%;
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 5px solid #E2C285;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 .korisnik h1 {
-  color: #E2C285;
+  color: #e4c07d;
 }
 .korisnik form {
   margin: 0 auto;
@@ -1014,7 +1189,7 @@ select {
 }
 .korisnik form span {
   margin-left: 1em;
-  color: #E2C285;
+  color: #e4c07d;
 }
 .korisnik form input {
   box-sizing: border-box;
@@ -1055,7 +1230,7 @@ select {
   border-radius: 5px;
 }
 .korisnik form .potvrdi:hover {
-  background: #E2C285;
+  background: #e4c07d;
   color: #1f1f1f;
 }
 .korisnik form img {
@@ -1073,10 +1248,18 @@ select {
   margin: 50px 0;
 }
 .korisnik table th {
-  color: #E2C285;
+  color: #e4c07d;
 }
 .korisnik table td {
   padding: 10px 0;
+}
+.korisnik .nores {
+  background: #1a1a1a;
+  padding: 20px;
+  margin: 10px 0 80px 0;
+}
+.korisnik .nores p {
+  color: #B3B3B3;
 }
 /* ======================================================================*/
 /*  Info sekcija */
@@ -1103,7 +1286,7 @@ select {
 }
 #info1 .info_div h1 {
   font-family: 'Playfair Display';
-  color: #E2C285;
+  color: #e4c07d;
   margin: 0 0 10px 0;
   font-size: 36px;
   font-weight: 100;
@@ -1114,6 +1297,15 @@ select {
   transform: translateX(-50%);
   min-width: 100%;
   height: 100%;
+}
+@media screen and (max-width: 1200px) and (min-width: 900px) {
+  #info1 .info_div:nth-child(3) {
+    grid-column-start: 2;
+  }
+  #info1 .info_div:nth-child(4) {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
 }
 #info1 .text {
   box-sizing: border-box;
@@ -1126,4 +1318,229 @@ select {
   font-weight: 400;
   color: #b1aca3;
   margin-top: 50px;
+}
+.okvir2 {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+#info2 {
+  background: url('../img/p1.jpg');
+  border-top: 1px solid #564C3B;
+  border-bottom: 1px solid #564C3B;
+  text-align: center;
+  padding: 80px;
+}
+#info2 h1 {
+  font-family: 'Playfair Display';
+  color: #564C3B;
+  margin: 20px 0 10px 0;
+  font-size: 46px;
+  font-weight: 100;
+}
+#info2 #info_div {
+  text-align: center;
+}
+#info2 #info_div .broj {
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  height: 120px;
+  background: url('../img/line4.webp');
+  background-size: 100% 100%;
+  margin: 0 6vw;
+}
+@media screen and (max-width: 1200px) {
+  #info2 #info_div .broj {
+    margin: 10px 2vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  #info2 #info_div .broj {
+    display: block;
+    margin: 80px auto;
+  }
+}
+#info2 #info_div .broj .brs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+  color: #e4c07d;
+}
+#info2 #info_div .broj .broj_text {
+  position: absolute;
+  font-family: 'Montserrat';
+  color: #bdbdbd;
+  font-size: 14px;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1000px) {
+  #info2 #info_div {
+    display: block;
+  }
+}
+.obavestenje3 {
+  font-family: "Playfair Display";
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32px 10px;
+  border: 1px solid #e4c07d;
+  background: #101010;
+  color: #e4c07d;
+  margin-top: 40px;
+}
+.obavestenje3 h2 {
+  font-size: 30px;
+  margin-top: 0;
+  padding: 0;
+  font-weight: 200;
+  color: #e4c07d;
+}
+.obavestenje3 p {
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  font-weight: 400;
+  color: #b1aca3;
+  line-height: 1.5em;
+}
+.obavestenje3 p span {
+  color: #e4c07d;
+}
+.success,
+.error,
+.sending {
+  display: none;
+}
+@keyframes boja {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+.sending span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 10px;
+  background: #e4c07d;
+  animation-name: boja;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+.sending span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.sending span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+#kontakt {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  font-size: 0;
+  background: url('../img/kontakt.jpg') no-repeat center center;
+  background-size: cover;
+}
+#kontakt .kontakt_div {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 99;
+  padding: 50px 0 100px 0;
+}
+#kontakt .kontakt_div #kontaktForm {
+  margin: 40px 0;
+}
+#kontakt .kontakt_div #kontaktForm .polje {
+  box-sizing: border-box;
+  padding: 12px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  text-indent: 1em;
+  background: #101010;
+  border: 1px solid #564C3B;
+  color: #e4c07d;
+}
+#kontakt .kontakt_div #kontaktForm .polje:focus {
+  border: 1px solid #e4c07d;
+}
+#kontakt .kontakt_div #kontaktForm input {
+  width: calc(50% - 5px);
+  height: 40px;
+}
+#kontakt .kontakt_div #kontaktForm input:first-child {
+  margin-right: 10px;
+}
+#kontakt .kontakt_div #kontaktForm textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+}
+#kontakt .kontakt_div #kontaktForm input[type=submit] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+  text-indent: unset;
+  background: #e4c07d;
+  color: #000;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 6px;
+}
+#kontakt .kontakt_div #kontaktForm input[type=submit]:hover {
+  background: #b28e4b;
+}
+#kontakt h1 {
+  font-family: 'Playfair Display';
+  color: #e4c07d;
+  margin: 20px 0 10px 0;
+  font-size: 46px;
+  font-weight: 100;
+}
+#kontakt iframe {
+  position: absolute;
+  top: 0;
+  width: 150%;
+  left: -25%;
+  height: 150%;
+  filter: invert(90%) brightness(80%) grayscale(1);
+  -moz-filter: invert(90%) brightness(80%) grayscale(1);
+}
+footer {
+  font-family: 'Source Sans Pro';
+  background: #181818;
+  box-sizing: border-box;
+  border-top: 1px solid #564C3B;
+  padding: 40px 0;
+  font-size: 14px;
+}
+footer a {
+  color: #e4c07d;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-left: 1em;
+}
+footer a:hover {
+  text-decoration: underline;
 }

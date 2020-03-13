@@ -4,10 +4,11 @@
 @nav_boja_teksta: #B3B3B3;
 @gold: #C19237;
 @obavestenje: rgba(226, 193, 133, 0.822);
+@gold4: #564C3B;
 
 @registracija_pozadina: #1f1f1f;
 @gold2: #926f0d;
-@gold3: #E2C285;
+@gold3: #e4c07d;
 @gold_poz: linear-gradient(-45deg, @gold2, @gold2 + 25, @gold2 + 45, @gold2 + 25, @gold2);
 @reg_text: rgb(216, 216, 216);
 @sirina_registracije: 600px;
@@ -15,11 +16,27 @@
 
 
 @pozadina: url('../img/pozadina4.jpg') no-repeat center center;
+//@pozadina: url('../img/p6.png') no-repeat center center;
 
 html, body {
     margin: 0;
     color: rgb(230, 230, 230);
     background: @pozadina_boja;
+}
+
+.mob_class {
+    display: block !important;
+}
+
+#ves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    max-width: 1250px;
 }
 
 .okvir {
@@ -55,13 +72,30 @@ select {
 
 .obavestenje2 {
     display: none;
-    font-family: 'Arial' sans-serif;
+    width: 100%;
+    font-family: 'Source Sans Pro' sans-serif;
     font-size: 14px;
     box-sizing: border-box;
+    letter-spacing: 2px;
     padding: 10px;
-    background: @info_bar_boja;
-    margin-top: 10px;
-    border: 1px solid #564C3B;
+    margin: -40px 0 90px 0;
+    font-weight: normal;
+    background: rgba(0, 0, 0, 0.8);
+    color: @gold3;
+    border: 1px solid @gold4;
+}
+
+.social {
+    float: right;
+    a {
+        color: @nav_boja_teksta;
+        padding: 10px;
+        margin: 0;
+        font-size: 15px;
+    }
+    a:hover {
+        color: @gold;
+    }
 }
 
 #pocetna {
@@ -89,20 +123,8 @@ select {
             font-size: 14px;
             padding: 14px;
             text-align: left;
-            border-bottom: 1px solid #564C3B;
+            border-bottom: 1px solid @gold4;
             color: @nav_boja_teksta;
-            .social {
-                float: right;
-                a {
-                    color: @nav_boja_teksta;
-                    padding: 10px;
-                    margin: 0;
-                    font-size: 15px;
-                }
-                a:hover {
-                    color: @gold;
-                }
-            }
         }
         nav {
             position: relative;
@@ -114,19 +136,26 @@ select {
                 @media (max-width: @responsive) {
                     .mob_nav {
                         background: #1d1d1d;
-                        width: 50%;
                         display: none;
-                        min-width: 200px;
+                        width: 80%;
+                        max-width: 400px;
                         position: fixed;
-                        top: 200px;
+                        top: 140px;
+                        max-height: calc(100vh - 100px);
+                        overflow-y: auto;
                         left: 0;
                         right: 0;
                         margin: 0 auto;
-                        z-index: 999999;
+                        z-index: 99999999;
+                        box-sizing: border-box;
+                        padding: 50px 0;
+                        scrollbar-width: none; /* Firefox */
+                        -ms-overflow-style: none;  /* Internet Explorer 10+ */
                         .lista_nav {
                             padding: 0;
-                            margin: 50px 0;
+                            margin-bottom: 50px;
                             display: block;
+                            background: @pozadina_boja + 10;
                             width: 100%;
                             li {
                                 display: block;
@@ -136,23 +165,19 @@ select {
                                 }
                             }
                         }
+                        &::-webkit-scrollbar {
+                            width: 0;
+                            height: 0;
+                        }
                     }
-                    .mob_class {
-                        display: block;
-                    }
-
-                    #mob_btn {
+                    .mob_btn {
                         float: right;
                         font-size: 37px;
-                        right: 0;
+                        right: 20px;
                         top: 0;
                         height: 50px;
                         width: 50px;
-                    }
-                }
-                @media (max-width: 700px) {
-                    .mob_nav {
-                        width: 80%;
+                        cursor: pointer;
                     }
                 }
             }
@@ -194,17 +219,18 @@ select {
                 }
             }
             .login {
+                position: relative;
                 float: right;
                 margin-top: 10px;
                 @media screen {
                     @media (max-width: @responsive) {
                         float: unset;
                         display: block;
-                        overflow: auto;
-                        height: 340px;
+                        overflow: hidden;
                     }
                 }
                 #profil {
+                    position: relative;
                     display: grid;
                     grid-template-columns: auto auto;
                     grid-gap: 10px;
@@ -213,6 +239,14 @@ select {
                     //background: @info_bar_boja;
                     height: 50px;
                     cursor: pointer;
+                    @media screen {
+                        @media (max-width: @responsive) {
+                            text-align: center;
+                            display: block;
+                            overflow: hidden;
+                            height: unset;
+                        }
+                    }
 
                     .slika_korisnika {
                         position: relative;
@@ -221,28 +255,36 @@ select {
                         overflow: hidden;
                         box-sizing: border-box;
                         border-radius: 50%;
-                        
+                        border: 2px solid @gold3;
                         img {
                             object-fit: cover;
                             min-width: 100%;
                             height: 100%;
+                            margin-left: 50%;
+                            transform: translateX(-50%);
                             //box-sizing: border-box;
                             //border: 3px solid @gold + 50;
                             //border-radius: 50%;
                         }
+                    }
+                    .ime {
+                        position: relative;
+                        display: flex; 
+                        box-sizing: border-box;
+                        vertical-align: middle;
+                        text-align: right;
+                        font-family: 'Playfair Display', serif;
+
                         @media screen {
                             @media (max-width: @responsive) {
                                 text-align: center;
                                 margin: 20px 0;
                                 display: block;
+                                vertical-align: unset;
+                                padding: 10px 0;
+                                background: @pozadina_boja + 10;
                             }
                         }
-                    }
-                    .ime {
-                        display: flex; 
-                        vertical-align: middle;
-                        text-align: right;
-                        font-family: 'Playfair Display', serif;
                         p {
                             color: @gold + 50;
                             margin: auto;
@@ -260,27 +302,29 @@ select {
                                 text-decoration: underline;
                             }
                         }
-                        @media screen {
-                            @media (max-width: @responsive) {
-                                text-align: center;
-                                margin: 10px 0;
-                                display: block;
-                            }
-                        }
                     }
                     .profil_info {
                         visibility: hidden;
                         position: absolute;
                         background: @info_bar_boja;
-                        width: 150px;
+                        width: 160px;
                         right: 0;
                         top: 50px + 10px;
                         transition: .2s ease-out all;
                         z-index: 99999;
+                        @media screen {
+                            @media (max-width: @responsive) {
+                                visibility: unset;
+                                background: transparent;
+                                position: relative;
+                                margin-top: 20px;
+                            }
+                        }
                         ul {
                             list-style-type: none;
                             margin: 0;
                             padding: 0;
+                            border: 1px solid @gold4;
                             li {
                                 a {
                                     font-family: 'Source Sans Pro', sans-serif;
@@ -292,23 +336,22 @@ select {
                                     padding: 14px;
                                     color: #B3B3B3;
                                     &:hover {
-                                        background: @gold_poz;
-                                        color: #fff;
+                                        color: @gold3;
                                     }
+                                }
+                                &:first-child {
+                                    margin-top: 10px;
                                 }
                                 &:last-child {
                                     margin-top: 20px;
-                                    background: @gold3;
+                                    background: @gold3 - 30;
                                     a {
-                                        color: #101010;;
+                                        color: #101010;
+                                        &:hover {
+                                            background: @gold3;
+                                        }
                                     }
                                 }
-                            }
-                        }
-                        @media screen {
-                            @media (max-width: @responsive) {
-                                margin-top: 20px;
-                                background: transparent;
                             }
                         }
                     }
@@ -326,11 +369,12 @@ select {
                             .slika_korisnika {
                                 text-align: center;
                                 margin: 0 auto;
+                                display: none;
                             }
                             .profil_info {
                                 visibility: visible;
                                 position: relative;
-                                display: block;
+                                display: none;
                                 width: 100%;
                                 top: 0;
                             }
@@ -357,9 +401,16 @@ select {
                     width: 30px;
                     height: 30px;
                     margin-left: 10px;
+                    box-sizing: border-box;
                     transform: translateY(1px);
-                    background: #E2C285;
+                    background: @gold3;
                     color: rgb(65, 65, 65);
+                    &:hover {
+                        border: 1px solid @gold4;
+                        background: #000;
+                        color:@gold3; 
+                        padding: 0;
+                    }
                 }
                 .link_reg {
                     font-family: Arial, Helvetica, sans-serif;
@@ -379,11 +430,16 @@ select {
                             margin-bottom: 20px;
                             width: 100%;
                             background: #1d1d1d - 5;
+                            padding: 20px 0;
+                            border-color: #1d1d1d - 5;
+                            &:focus {
+                                border-color: @gold3;
+                            }
                         }
                         .login_btn {
                             width: 100%;
                             margin: 0;
-                            margin-bottom: 40px;
+                            margin-bottom: 20px;
                         }
                     }
                 }
@@ -413,14 +469,21 @@ select {
         font-family: 'Playfair Display', serif;
         letter-spacing: 5px;
         font-weight: 700;
+        color: #d4d4d4;
+        overflow: auto;
         //background: rgba(0, 0, 0, 0.342);
         h1 {
+            //font-family: 'Parisienne', cursive;
+            //font-family: 'Niconne', cursive;
+            font-weight: 100;
             margin: 0;
             font-size: 100px;
         }
         h2 {
+            //font-family: 'Niconne', cursive;
             margin: 0 0 30px 0;
             font-size: 40px;
+            font-weight: 100;
         }
         @media screen {
             @media (max-width: @responsive ) {
@@ -433,6 +496,21 @@ select {
             }
         }
     }
+}
+
+@media screen {
+    @media (max-width: 550px) {
+        .linija1 {
+            width: 60vw;
+        }
+        .linija2 {
+            width: 20vw;
+        }
+    }
+}
+
+#TestDatum {
+    margin-bottom: 80px;
 }
 
 #info {
@@ -601,8 +679,9 @@ select {
             font-size: 16px;
             font-weight: bold;
             &:hover {
+                border: 1px solid @gold4;
                 background: @pozadina_boja;
-                color: @gold3;
+                color:@gold3; 
             }
         }
         @media screen {
@@ -619,7 +698,7 @@ select {
     height: 110px;
     box-sizing: border-box;
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #564C3B;
+    border: 1px solid @gold4;
     label {
         font-family: 'Montserrat';
         text-transform: uppercase;
@@ -637,11 +716,27 @@ select {
         background: transparent;
         border: none;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 20px;
         color: @gold3;
-        font-weight: bold;
         margin-top: 10px;
         cursor: pointer;
+        @media screen {
+            @media (max-width: 1300px) {
+                font-size: 18px;
+            }
+            @media (max-width: 1150px) {
+                font-size: 16px;
+            }
+            @media (max-width: 1070px) {
+                font-size: 14px;
+            }
+            @media (max-width: @responsive) {
+                font-size: 20px;
+            }
+            @media (max-width: 350px) {
+                font-size: 16px;
+            }
+        }
     
         &:before {
             position: absolute;
@@ -727,6 +822,14 @@ select {
     background-size: cover;
     overflow: auto;
 
+    #admin_wrap {
+        background: rgba(0, 0, 0, 0.514);
+        backdrop-filter: blur(2px);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
     #admin_form {
         text-align: center;
         position: fixed;
@@ -737,11 +840,11 @@ select {
         margin: 0 auto;
         transform: translateY(-60%);
         width: 90%;
-        max-width: 500px;
+        max-width: 450px;
         border-top: 1px solid @gold2;
         background: @registracija_pozadina;
         box-sizing: border-box;
-        padding: 50px;
+        padding: 50px 60px;
 
         h1 {
             font-family: 'Playfair Display', serif;
@@ -787,25 +890,39 @@ select {
     }
 }
 
-@sirina_admin: 250px;
+@sirina_admin: 200px;
 
 #adminpanel {
     position: relative;
     overflow: auto;
+    background: rgb(32, 32, 32);
     .admin_nav {
         position: fixed;
         width: @sirina_admin;
         height: 100vh;
         overflow-y: auto;
         padding: 20px;
-        background: rgb(29, 29, 29);
+        background: rgb(32, 32, 32) - 7;
         text-align: center;
+        h1 {
+            margin-top: 50px;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+        }
         h2 {
             margin-top: 100px;
+            color: #B3B3B3;
         }
         a {
             color: @gold3;
         }
+    }
+    .admin_header {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+        color: rgb(153, 153, 153);
     }
     .admin_str {
         font-size: 20px;
@@ -815,10 +932,11 @@ select {
 
         .tabela {
             width: 80%;
+            color: rgb(156, 156, 156);
             box-sizing: border-box;
             padding: 20px;
-            border-radius: 10px;
-            background: #272727;
+            border-radius: 6px;
+            background: rgb(32, 32, 32) - 7;
             margin-bottom: 20px;
             font-size: 16px;
             thead {
@@ -830,7 +948,13 @@ select {
                             width: 70px;
                         }
                         span {
+                            text-transform: uppercase;
                             color: @gold3;
+                            font-family: 'Montserrat';
+                            font-size: 12px;
+                            text-transform: uppercase;
+                            font-weight: 200;
+                            word-spacing: 4px;
                         }
                         &:last-child {
                             text-align: right;
@@ -849,7 +973,7 @@ select {
                             border-radius: 50%;
                             margin: 10px 20px;
                             box-sizing: border-box;
-                            border: 2px solid @gold3;
+                            border: 3px solid rgb(70, 70, 70);
                         }
                         a {
                             color: @gold3;
@@ -875,20 +999,22 @@ select {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             width: 100%;
-            margin-bottom: 10px;
+            //margin-bottom: 10px;
+            //border-bottom: 1px dashed @gold3 - 50;
             input {
                 padding: 10px;
                 color: @gold3;
-                background: @pozadina_boja + 10;
+                background: rgb(32, 32, 32) - 10;
                 border: none;
                 outline: none;
             }
             input[type=submit]{
-                background: rgb(56, 56, 56);
-                color: rgb(211, 211, 211);
+                color: @gold3;
                 cursor: pointer;
                 text-transform: uppercase;
                 font-weight: bold;
+                box-sizing: border-box;
+                border-left: 1px dashed rgb(63, 63, 63);
                 &:hover {
                     background: @gold3;
                     color: #000;
@@ -977,7 +1103,7 @@ select {
     margin: 0 auto;
     transform: translateY(-50%);
     width: 90%;
-    max-width: @sirina_registracije;
+    max-width: 500px;
     border-top: 1px solid @gold2;
     background: @registracija_pozadina;
     box-sizing: border-box;
@@ -1030,16 +1156,18 @@ select {
         font-size: 14px;
         width: 100%;
         cursor: pointer;
-        background: @registracija_pozadina + 40;
-        color: @reg_text;
+        background: @gold3;
+        color: @registracija_pozadina;
         letter-spacing: 3px;
         font-weight: bold;
-        border: none;
+        box-sizing: border-box;
+        border: 1px solid @gold3;
         text-transform: uppercase;
-        border-radius: 5px;
+        transition: .4s all;
         &:hover {
-            background: @gold3;
-            color: @registracija_pozadina;
+            background: @registracija_pozadina + 20;
+            color: @gold3;
+            border-color: @gold4;
         }
     }
     h2 {
@@ -1047,6 +1175,38 @@ select {
     }
 }
 
+#rezervisiSobu {
+    table {
+        font-family: 'Source Sans Pro';
+        border-collapse: collapse;
+        table-layout: fixed;
+        text-align: left;
+        width: 100%;
+        margin: 40px auto;
+        td {
+            font-size: 14px;
+            padding: 15px;
+            color: rgb(177, 177, 177);
+            &:nth-child(even) {
+                text-align: right;
+            }
+            span {
+                color: @gold3;
+                text-align: right;
+            }
+        }
+        tr:nth-child(even) {
+            background: @registracija_pozadina + 10;
+        }
+        tr:last-child {
+            td {
+                //color: rgb(218, 218, 218);
+                font-weight: bold;
+                font-size: 17px;
+            }
+        }
+    }
+}
 .slika_okvir {
     width: 70px;
     height: 70px;
@@ -1066,14 +1226,16 @@ select {
 /* ======================================================================*/
 
 #profil_div {
+    position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background: @pozadina;
+    overflow: hidden;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    overflow: visible;
+    background-attachment: fixed;
 }
 
 .obrisi:hover {
@@ -1081,23 +1243,48 @@ select {
 }
 
 .korisnik {
+    overflow: hidden;
     text-align: center;
     width: 100%;
-    background: @info_bar_boja;
-    height: 100vh;
-    overflow: auto;
     background: @registracija_pozadina;
+    padding-top: 50px;
+
+    .logout_profil {
+        color: rgb(202, 202, 202);
+        text-decoration: underline;
+        font-size: 16px;
+        &:hover {
+            color: rgb(236, 236, 236);
+        }
+    }
+
+    .home_link {
+        background: @registracija_pozadina - 7;
+        padding: 10px 20px;
+        position: absolute;
+        left: 0;
+        font-size: 16px;
+        top: 0;
+        color: rgb(151, 151, 151);
+        &:hover {
+            color: rgb(87, 87, 87);
+            background: @gold3 - 10;
+        }
+    }
 
     .korisnik_img {
         margin: 20px auto;
         width: 150px;
         height: 150px;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: 5px solid @gold3;
+        border-radius: 50%;
         img {
-            width: 100%;
+            min-width: 100%;
             height: 100%;
-            border-radius: 50%;
-            box-sizing: border-box;
-            border: 5px solid @gold3;
+            margin-left: 50%;
+            transform: translateX(-50%);
         }
     }
     h1 {
@@ -1179,6 +1366,14 @@ select {
             padding: 10px 0;
         }
     }
+    .nores {
+        background: @registracija_pozadina - 5;
+        padding: 20px;
+        margin: 10px 0 80px 0;
+        p {
+            color: #B3B3B3;
+        }
+    }
 }
 
 /* ======================================================================*/
@@ -1215,6 +1410,17 @@ select {
             min-width: 100%;
             height: 100%;
         }
+        @media screen {
+            @media (max-width: 1200px) and (min-width: 900px) {
+                &:nth-child(3) {
+                    grid-column-start: 2;
+                }
+                &:nth-child(4) {
+                    grid-column-start: 1;
+                    grid-row-start: 2;
+                }
+            }
+        }
     }
     .text {
         box-sizing: border-box;
@@ -1226,6 +1432,242 @@ select {
             font-weight: 400;
             color: rgb(177, 172, 163);
             margin-top: 50px;
+        }
+    }
+}
+
+.okvir2 {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#info2 {
+    background: url('../img/p1.jpg');
+    border-top: 1px solid @gold4;
+    border-bottom: 1px solid @gold4;
+    text-align: center;
+    padding: 80px;
+    h1 {
+        font-family: 'Playfair Display';
+        color: @gold4;
+        margin: 20px 0 10px 0;
+        font-size: 46px;
+        font-weight: 100;
+    }
+    #info_div {
+        text-align: center;
+        .broj {
+            display: inline-block;
+            position: relative;
+            width: 180px;
+            height: 120px;
+            background: url('../img/line4.webp');
+            background-size: 100% 100%;
+            margin: 0 6vw;
+            @media screen {
+                @media (max-width: 1200px) {
+                    margin: 10px 2vw;
+                }
+                @media (max-width: 800px) {
+                    display: block;
+                    margin: 80px auto;
+                }
+            }
+            .brs {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 36px;
+                color: @gold3;
+            }
+            .broj_text {
+                position: absolute;
+                font-family: 'Montserrat';
+                color: #bdbdbd;
+                font-size: 14px;
+                left: 0;
+                right: 0;
+                bottom: -30px;
+                text-transform: uppercase;
+            }
+        }
+        @media screen {
+            @media (max-width: @responsive) {
+                display: block;
+            }
+        }
+    }
+}
+
+.obavestenje3 {
+    font-family: "Playfair Display";
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32px 10px;
+    border: 1px solid @gold3;
+    background: @pozadina_boja;
+    color: @gold3;
+    margin-top: 40px;
+    h2 {
+        font-size: 30px;
+        margin-top: 0;
+        padding: 0;
+        font-weight: 200;
+        color: @gold3;
+    }
+    p {
+
+        font-family: 'Source Sans Pro';
+        font-size: 16px;
+        font-weight: 400;
+        color: rgb(177, 172, 163);
+        line-height: 1.5em;
+        span {
+            color: @gold3;
+        }
+    }
+}
+
+.success,
+.error,
+.sending {
+    display: none;
+}
+
+@keyframes boja {
+    0% {
+      opacity: .2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .2;
+    }
+}
+
+.sending span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    background: @gold3;
+    animation-name: boja;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.sending span:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.sending span:nth-child(3) {
+    animation-delay: .4s;
+}
+
+#kontakt {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    font-size: 0;
+    background: url('../img/kontakt.jpg') no-repeat center center;
+    background-size: cover;
+    .kontakt_div {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        background: rgba(15, 15, 15, 0.6);
+        backdrop-filter: blur(2px);
+        z-index: 99;
+        padding: 50px 0 100px 0;
+        #kontaktForm {
+            margin: 40px 0;
+            .polje {
+                box-sizing: border-box;
+                padding: 12px;
+                border: none;
+                outline: none;
+                margin-bottom: 10px;
+                text-indent: 1em;
+                //background: rgba(39, 39, 39, 0.6);
+                background: @pozadina_boja;
+                border: 1px solid @gold4;
+                color: @gold3;
+                &:focus {
+                    border: 1px solid @gold3;
+                }
+            }
+            input {
+                width: calc(50% - 5px);
+                height: 40px;
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+            textarea {
+                width: 100%;
+                height: 80px;
+                resize: none;
+            }
+            input[type=submit] {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 10px;
+                outline: none;
+                cursor: pointer;
+                text-indent: unset;
+                background: @gold3;
+                color: #000;
+                border: none;
+                text-transform: uppercase;
+                font-weight: bold;
+                transition: all .5s;
+                border-radius: 6px;
+                &:hover {
+                    background: @gold3 - 50;
+                    //border: 1px solid @gold3;
+                }
+            }
+        }
+    }
+    h1 {
+        font-family: 'Playfair Display';
+        color: @gold3;
+        margin: 20px 0 10px 0;
+        font-size: 46px;
+        font-weight: 100;
+    }
+    iframe {
+        position: absolute;
+        top: 0;
+        width: 150%;
+        left: -25%;
+        height: 150%;
+        filter: invert(90%) brightness(80%) grayscale(1);
+        -moz-filter: invert(90%) brightness(80%) grayscale(1);
+    }
+}
+
+footer {
+    font-family: 'Source Sans Pro';
+    background: rgb(24, 24, 24);
+    box-sizing: border-box;
+    border-top: 1px solid @gold4;
+    padding: 40px 0;
+    font-size: 14px;
+    a {
+        color: @gold3;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-left: 1em;
+        &:hover {
+            text-decoration: underline;
         }
     }
 }
